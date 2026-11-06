@@ -92,7 +92,7 @@ RENO = dict(
     h1="Rénovation de toiture <em>tuile, ardoise et zinc</em>",
     sub="Réfection complète ou partielle de votre couverture, autour de Conches-en-Ouche, Évreux et Le Neubourg. Un artisan couvreur zingueur, un devis gratuit et détaillé.",
     need="Rénovation de toiture",
-    og="img/thomas-toiture-ardoise.jpg",
+    og="img/ardoises-colombages-lucarnes.jpg",
     signs=[("TILE", "Tuiles ou ardoises abîmées", "Cassées, glissées, poreuses ou couvertes de mousse."),
            ("CEILING", "Traces dans les combles", "Taches, bois humide ou goutte lors des fortes pluies."),
            ("ROOF", "Faîtage et rives fatigués", "Mortier fissuré, tuiles faîtières qui bougent."),
@@ -101,10 +101,13 @@ RENO = dict(
             ["Écran sous-toiture et liteaux neufs", "Tuile, ardoise ou bac acier", "Faîtage, rives et raccords"]),
            ("Rénovation partielle", "Remplacement localisé", "Un pan, une zone abîmée ou quelques rangs à reprendre.",
             ["Tuiles et ardoises remplacées", "Raccord avec l'existant", "Fenêtres de toit et cheminées"]),
-           ("Zinc et acier", "Couverture métallique", "Zinc à joint debout ou bac acier, pour annexes, garages et extensions.",
-            ["Joint debout", "Bardage de pignon", "Bandeaux et rives en zinc"])],
-    photo=("img/couverture-zinc-joint-debout.jpg", 900, 1200, "Couverture et pignon en zinc à joint debout posés sur une annexe en parpaings"),
-    photo_cap="Couverture et pignon en zinc à joint debout",
+           ("Annexes et garages", "Bac acier et bardage", "Couverture en bac acier sur voligeage, pignon bardé du même profil.",
+            ["Bac acier anthracite", "Bardage de pignon", "Rives et gouttières"])],
+    photo="ardoises-liteaux-aretier",
+    ba=("bac-acier-avant-tole", "bac-acier-apres-appentis-pignon", "Avant / après", "Une annexe <em>couverte à neuf</em>",
+        "Ancienne tôle déposée, voligeage bois, puis bac acier anthracite sur le toit et le pignon."),
+    gallery=("Sur nos chantiers", "Ardoise, bois <em>et acier</em>",
+             ["ardoises-colombages-lucarnes", "voligeage-isolant-reflechissant", "lucarnes-maison-meuliere", "bac-acier-ossature-pignon", "bac-acier-pose-en-cours"]),
     steps=[("Visite et diagnostic", "Nous montons voir la couverture et vous expliquons ce qui doit être refait."),
            ("Devis détaillé", "Matériaux, surfaces et étapes : tout est écrit, poste par poste."),
            ("Travaux", "Dépose, pose et finitions, puis chantier nettoyé avant de partir.")],
@@ -122,7 +125,7 @@ FUITE = dict(
     h1="Fuite de toiture : <em>recherche et réparation</em>",
     sub="Nous trouvons d'où vient l'eau et réparons la couverture ou la zinguerie en cause, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
     need="Réparation de fuite",
-    og="img/fenetre-de-toit-tuiles.jpg",
+    og="img/fenetre-de-toit-apres.jpg",
     signs=[("CEILING", "Tache au plafond", "Auréole, peinture qui cloque ou plâtre qui gonfle."),
            ("DROP", "Gouttes dans les combles", "Bois humide ou isolant mouillé après la pluie."),
            ("TILE", "Tuile cassée ou glissée", "Souvent après un coup de vent ou un hiver rigoureux."),
@@ -133,8 +136,9 @@ FUITE = dict(
             ["Tuiles et ardoises remplacées", "Faîtage et rives repris", "Noues refaites"]),
            ("Zinguerie", "Raccords étanches", "Les points sensibles sont souvent les jonctions entre la toiture et ce qui la traverse.",
             ["Abergements de cheminée", "Raccords de fenêtre de toit", "Chéneaux et gouttières"])],
-    photo=("img/fenetre-de-toit-tuiles.jpg", 620, 766, "Fenêtre de toit avec volet roulant sur une toiture en tuiles mécaniques"),
-    photo_cap="Raccords d'une fenêtre de toit sur couverture en tuiles",
+    photo="couvertines-solin-angle",
+    ba=("fenetre-de-toit-avant", "fenetre-de-toit-apres", "Avant / après", "Une fenêtre de toit <em>et son raccord</em>",
+        "Les fenêtres de toit sont un point sensible de la couverture : ici, fenêtre et raccord d'étanchéité remplacés."),
     steps=[("Appel ou formulaire", "Décrivez-nous la fuite : où, depuis quand, par quel temps."),
            ("Recherche de fuite", "Nous inspectons la toiture et vous montrons la cause."),
            ("Réparation", "Devis détaillé, puis réparation de la couverture ou de la zinguerie.")],
@@ -152,7 +156,7 @@ GOUTT = dict(
     h1="Gouttières et zinguerie <em>zinc, cuivre, aluminium</em>",
     sub="Gouttières, chéneaux, descentes et habillages façonnés par un ferblantier, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
     need="Gouttières / zinguerie",
-    og="img/bandeau-zinc-ecran-sous-toiture.jpg",
+    og="img/gouttiere-descente-angle.jpg",
     signs=[("GUTTER", "Gouttière qui déborde", "L'eau passe par-dessus et coule le long du mur."),
            ("DROP", "Fuite aux jonctions", "Goutte à goutte aux raccords, aux angles ou aux talons."),
            ("WALL", "Traces sur la façade", "Coulures, mousse ou enduit qui se décolle sous la gouttière."),
@@ -163,8 +167,9 @@ GOUTT = dict(
             ["Bandeaux et couvertines", "Rives et noues", "Abergements"]),
            ("Ornementation", "Épis, girouettes et crêtes", "Les finitions en zinc ou en cuivre qui signent une toiture.",
             ["Épis de faîtage", "Girouettes", "Crêtes et lucarnes"])],
-    photo=("img/bandeau-zinc-ecran-sous-toiture.jpg", 900, 1200, "Bandeau en zinc autour d'un toit plat, à côté d'une toiture en cours de réfection avec écran sous-toiture"),
-    photo_cap="Bandeau en zinc et réfection de toiture en cours",
+    photo="gouttiere-descente-angle",
+    gallery=("Sur nos chantiers", "Gouttières, descentes <em>et couvertines</em>",
+             ["gouttiere-descente-entree", "descente-pied-de-facade", "bac-acier-rive-gouttiere", "couvertines-toiture-terrasse", "couvertine-detail-rive", "girouette-cerf-cuivre"]),
     steps=[("Prise de mesures", "Nous relevons les longueurs, les pentes et les descentes."),
            ("Devis détaillé", "Métal, profil et finitions choisis avec vous."),
            ("Pose", "Dépose de l'ancien, pose et contrôle de l'écoulement.")],
@@ -176,13 +181,36 @@ GOUTT = dict(
 
 PAGES = [HOME, RENO, FUITE, GOUTT]
 SERVICES = [  # cartes de l'accueil
-    (RENO, "img/couverture-zinc-joint-debout.jpg", "Couverture en zinc à joint debout sur une annexe", "Rénovation de toiture",
-     "Réfection complète ou partielle en tuile, ardoise, zinc ou bac acier."),
-    (FUITE, "img/fenetre-de-toit-tuiles.jpg", "Fenêtre de toit sur une couverture en tuiles", "Réparation de fuite",
-     "Recherche de l'origine, puis réparation de la couverture ou de la zinguerie."),
-    (GOUTT, "img/bandeau-zinc-ecran-sous-toiture.jpg", "Bandeau en zinc posé autour d'un toit plat", "Gouttières et zinguerie",
-     "Gouttières, chéneaux, descentes et habillages en zinc, cuivre ou aluminium."),
+    (RENO, "ardoises-colombages-lucarnes", "Rénovation de toiture", "Réfection complète ou partielle en tuile, ardoise, zinc ou bac acier."),
+    (FUITE, "fenetre-de-toit-apres", "Réparation de fuite", "Recherche de l'origine, puis réparation de la couverture ou de la zinguerie."),
+    (GOUTT, "gouttiere-descente-angle", "Gouttières et zinguerie", "Gouttières, chéneaux, descentes et habillages en zinc, cuivre ou aluminium."),
 ]
+HOME_GALLERY = ["bac-acier-apres-appentis-pignon", "ardoises-liteaux-aretier", "lucarnes-maison-meuliere",
+                "couvertines-toiture-terrasse", "bac-acier-pose-en-cours", "couvertines-solin-angle"]
+
+# Photos du site : nom de fichier -> (largeur, hauteur, texte alternatif, légende). Sources : fiche Google,
+# Instagram et Drive partagé par Aymeric le 06/11/2026 (métadonnées EXIF retirées).
+PHOTOS = {
+    "thomas-toiture-ardoise": (505, 828, f"{OWNER.split()[0]} sur une toiture en ardoise en cours de réfection, contre une cheminée en brique", "Réfection d'une couverture en ardoise"),
+    "girouette-cerf-cuivre": (900, 1200, "Girouette en cuivre en forme de cerf au sommet d'un pignon", "Girouette en cuivre posée sur un pignon"),
+    "ardoises-colombages-lucarnes": (1000, 750, "Maison à colombages avec toiture, lucarnes et bardage en ardoise", "Toiture et bardage en ardoise sur une maison à colombages"),
+    "ardoises-liteaux-aretier": (750, 1000, "Ardoises posées sur liteaux le long d'un arêtier, chantier en cours", "Pose d'ardoises sur liteaux, détail d'arêtier"),
+    "voligeage-isolant-reflechissant": (750, 1000, "Voligeage bois et isolant réfléchissant posés avant la couverture", "Voligeage et isolant réfléchissant avant couverture"),
+    "lucarnes-maison-meuliere": (750, 1000, "Maison en meulière à lucarnes, échafaudage en place pour les travaux de toiture", "Chantier sur une maison en meulière à lucarnes"),
+    "bac-acier-avant-tole": (750, 1000, "Annexe couverte d'une ancienne tôle nervurée, avant travaux", "Ancienne couverture en tôle nervurée"),
+    "bac-acier-apres-appentis-pignon": (750, 1000, "Annexe couverte de bac acier anthracite, pignon bardé du même bac acier", "Bac acier anthracite, pignon bardé"),
+    "bac-acier-pose-en-cours": (750, 1000, "Pose de bac acier anthracite sur voligeage bois, échafaudage en place", "Pose du bac acier sur voligeage"),
+    "bac-acier-ossature-pignon": (750, 1000, "Ossature bois du pignon et voligeage prêts à recevoir le bac acier", "Ossature bois du pignon avant bardage"),
+    "bac-acier-rive-gouttiere": (750, 1000, "Gouttière et rive en bout de couverture en bac acier anthracite", "Rive et gouttière sur bac acier"),
+    "gouttiere-descente-angle": (750, 1000, "Gouttière et descente métalliques à l'angle d'une maison aux volets blancs", "Gouttière et descente à l'angle de la maison"),
+    "gouttiere-descente-entree": (750, 1000, "Gouttière et descente métalliques sur une maison de plain-pied", "Gouttière et descente posées"),
+    "descente-pied-de-facade": (750, 1000, "Descente d'eaux pluviales métallique fixée en pied de façade", "Descente d'eaux pluviales en pied de façade"),
+    "couvertines-toiture-terrasse": (750, 1000, "Couvertines métalliques posées autour d'une toiture terrasse", "Couvertines autour d'une toiture terrasse"),
+    "couvertine-detail-rive": (750, 1000, "Détail d'une couvertine métallique en rive de toiture terrasse", "Couvertine en rive de toiture terrasse"),
+    "couvertines-solin-angle": (750, 1000, "Couvertines métalliques et solin à l'angle d'une toiture terrasse, contre le mur de la maison", "Couvertines et solin contre le mur"),
+    "fenetre-de-toit-avant": (750, 1000, "Ancienne fenêtre de toit avec volet roulant fermé sur une toiture en tuiles, avant travaux", "Ancienne fenêtre de toit"),
+    "fenetre-de-toit-apres": (750, 1000, "Fenêtre de toit neuve avec volet roulant solaire et raccord d'étanchéité sur tuiles", "Fenêtre neuve et raccord d'étanchéité"),
+}
 REASSURANCE = [("DOC", "Devis gratuit", "écrit et détaillé"), ("USER", "Un seul interlocuteur", "l'artisan, du devis à la fin du chantier"),
                ("METAL", "Tous métaux", "zinc, cuivre, acier, aluminium"), ("BROOM", "Chantier nettoyé", "avant notre départ")]
 
@@ -367,9 +395,21 @@ def cta_band(h2, txt):
     return f"""<section class="band"><div class="wrap band-in"><div><h2>{h2}</h2><p>{e(txt)}</p></div>
 <div class="cta"><a href="#devis" class="btn btn-main">{I['ARROW']}Demander un devis gratuit</a><a href="tel:{TEL_INT}" class="btn btn-ghost">{I['PHONE']}<span>{TEL_FR}</span></a></div></div></section>"""
 
-def figure(src, w, h, alt, cap, cls="photo", pos=""):
+def img(name, pos=""):
+    w, h, alt, _ = PHOTOS[name]
     style = f' style="object-position:{pos}"' if pos else ""
-    return f'<figure class="{cls}"><img src="{src}" width="{w}" height="{h}" alt="{e(alt)}" loading="lazy" decoding="async"{style}><figcaption>{e(cap)}</figcaption></figure>'
+    return f'<img src="img/{name}.jpg" width="{w}" height="{h}" alt="{e(alt)}" loading="lazy" decoding="async"{style}>'
+
+def figure(name, cls="photo", pos="", badge=""):
+    b = f'<span class="badge">{e(badge)}</span>' if badge else ""
+    return f'<figure class="{cls}">{img(name, pos)}{b}<figcaption>{e(PHOTOS[name][3])}</figcaption></figure>'
+
+def gallery(names):
+    # les photos paysage occupent deux colonnes
+    return '<div class="gallery">' + "".join(figure(n, "photo g-item" + (" wide" if PHOTOS[n][0] > PHOTOS[n][1] else "")) for n in names) + "</div>"
+
+def before_after(before, after):
+    return f'<div class="ba">{figure(before, "photo", badge="Avant")}{figure(after, "photo", badge="Après")}</div>'
 
 def page(p, body):
     faq = faq_items(p["faq"])
@@ -383,14 +423,14 @@ def page(p, body):
 def home():
     p = HOME
     cards = "".join(
-        f'<a class="card card-link" href="{s["file"]}"><img src="{img}" width="900" height="1200" alt="{e(alt)}" loading="lazy" decoding="async">'
+        f'<a class="card card-link" href="{s["file"]}">{img(name)}'
         f'<div class="card-body"><h3>{e(t)}</h3><p>{e(d)}</p><span class="more">Voir la prestation {I["ARROW"]}</span></div></a>'
-        for s, img, alt, t, d in SERVICES)
+        for s, name, t, d in SERVICES)
     body = section("Nos prestations", "Couverture, fuites <em>et zinguerie</em>", f'<div class="cards cards-3">{cards}</div>'
                    + chips(["Tuile", "Ardoise", "Zinc", "Cuivre", "Bac acier", "Noues et faîtages", "Lucarnes", "Corniches", "Étanchéité"]),
                    lead="Une seule entreprise pour la couverture et tout ce qui est en métal sur votre toit.", sid="prestations")
     body += section("Votre artisan", f"{OWNER.split()[0]}, <em>couvreur zingueur</em>",
-                    '<div class="split">' + figure("img/thomas-toiture-ardoise.jpg", 505, 828, f"{OWNER.split()[0]} sur une toiture en ardoise en cours de réfection, contre une cheminée en brique", "Réfection d'une couverture en ardoise", pos="50% 30%")
+                    '<div class="split">' + figure("thomas-toiture-ardoise", pos="50% 30%")
                     + '<div>' + f'<p class="intro">Vous parlez à l\'artisan qui monte sur votre toit, du premier appel à la fin du chantier.</p>'
                     + tiles([("ROOF", "Couverture", "Tuile, ardoise, zinc et bac acier."),
                              ("METAL", "Ferblanterie", "Zinc, cuivre, acier et aluminium façonnés."),
@@ -398,10 +438,12 @@ def home():
                              ("USER", "Particuliers et pros", "Maisons, entreprises, collectivités.")])
                     + "</div></div>", cls="sec-alt", sid="artisan")
     body += section("Ornementation", "La signature <em>d'un ferblantier</em>",
-                    '<div class="split split-rev">' + figure("img/girouette-cerf-cuivre.jpg", 900, 1200, "Girouette en cuivre en forme de cerf au sommet d'un pignon", "Girouette en cuivre posée sur un pignon", pos="50% 25%")
+                    '<div class="split split-rev">' + figure("girouette-cerf-cuivre", pos="50% 25%")
                     + '<div><p class="intro">Épis de faîtage, girouettes, crêtes, habillages de lucarnes : les finitions en zinc et en cuivre qui donnent du caractère à une toiture.</p>'
                     + chips(["Épis de faîtage", "Girouettes", "Crêtes", "Lucarnes", "Corniches"])
                     + f'<p><a href="{GOUTT["file"]}" class="btn btn-outline">{I["ARROW"]}Zinguerie et ornementation</a></p></div></div>', sid="ornementation")
+    body += section("Nos réalisations", "Sur nos <em>chantiers</em>", gallery(HOME_GALLERY),
+                    lead="Bac acier, ardoise, couvertines et zinguerie : quelques travaux récents.", cls="sec-alt", sid="realisations")
     body += section("Comment ça se passe", "Votre chantier <em>en 3 étapes</em>",
                     steps3([("Appel ou formulaire", "Décrivez-nous votre toiture et ce qui vous inquiète."),
                             ("Visite et devis gratuit", "Nous venons voir et vous remettons un devis écrit et détaillé."),
@@ -418,11 +460,16 @@ def service(p):
         f'<article class="card"><span class="tag">{e(tag)}</span><h3>{e(t)}</h3><p>{e(d)}</p><ul class="checks">'
         + "".join(f"<li>{I['CHECK']}{e(x)}</li>" for x in pts) + "</ul></article>" for tag, t, d, pts in p["works"])
     others = "".join(f'<a class="other" href="{s["file"]}">{e(s["lp"])} {I["ARROW"]}</a>' for s in PAGES[1:] if s is not p)
-    src, w, h, alt = p["photo"]
     body = section("Quand nous appeler", "Les signes <em>à surveiller</em>", tiles(p["signs"]), sid="signes")
     body += section("Ce que nous faisons", f"{e(p['lp'])} : <em>nos interventions</em>",
                     '<div class="split split-wide"><div class="cards">' + works + "</div>"
-                    + figure(src, w, h, alt, p["photo_cap"]) + "</div>", cls="sec-alt", sid="prestations")
+                    + figure(p["photo"]) + "</div>", cls="sec-alt", sid="prestations")
+    if p.get("ba"):
+        before, after, eyebrow, h2, lead = p["ba"]
+        body += section(eyebrow, h2, before_after(before, after), lead=e(lead), sid="avant-apres", center=True)
+    if p.get("gallery"):
+        eyebrow, h2, names = p["gallery"]
+        body += section(eyebrow, h2, gallery(names), cls="sec-alt" if p.get("ba") else "", sid="realisations", center=True)
     body += section("Comment ça se passe", "Votre chantier <em>en 3 étapes</em>", steps3(p["steps"]), cls="sec-dark", sid="methode", center=True)
     body += section("Zone d'intervention", "Dans l'Eure, <em>autour de Portes</em>", zone_block(),
                     lead="Conches-en-Ouche, Évreux, Le Neubourg, Beaumont-le-Roger et les communes voisines.", sid="zone")
