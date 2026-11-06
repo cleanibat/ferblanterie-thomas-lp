@@ -1,0 +1,36 @@
+name: Déploiement SSH (rsync)
+
+# Hébergeur avec accès SSH (Hostinger, o2switch, OVH Pro, Infomaniak, VPS…).
+# Secrets à créer sur le dépôt : SSH_HOST, SSH_PORT, SSH_USER, SSH_KEY (clé privée), SSH_KNOWN_HOSTS (ssh-keyscan), SSH_TARGET_DIR (docroot, finit par /), SITE_URL
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Préparer la clé SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      - name: Synchroniser les fichiers
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }}" \
+            --exclude '.git' --exclude '.github' --exclude 'build.py' \
+            --exclude 'README.md' --exclude '.nojekyll' --exclude '.DS_Store' \
+            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_TARGET_DIR }}
+      - name: Vérifier la mise en ligne
+        run: |
+          sleep 5
+          curl -sS -o /dev/null -w "HTTP %{http_code}\n" "${{ secrets.SITE_URL }}" || true
