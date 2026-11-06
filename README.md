@@ -1,11 +1,12 @@
-# La Ferblanterie de Thomas – Landing pages Google Ads
+# La Ferblanterie de Thomas – site web
 
-Site statique. Chaque push sur `main` déploie automatiquement (workflow dans `.github/workflows/`, garder celui de l'hébergeur utilisé).
-Aperçu : https://cleanibat.github.io/ferblanterie-thomas-lp/
+Couvreur zingueur à Portes (27). Site statique généré par `build.py` (accueil + 3 pages services : rénovation de toiture, réparation de fuite, gouttières et zinguerie).
+Production : https://laferblanteriedethomas.com/ (IONOS Hébergement Web Plus, contrat 300541272). Aperçu : https://cleanibat.github.io/ferblanterie-thomas-lp/ (le formulaire n'y fonctionne pas, c'est normal).
 
-## Checklist de lancement
-1. E-mail de réception des leads dans `contact.php` (formulaire HTML classique, aucun service tiers ; l'aperçu GitHub Pages n'envoie rien, c'est normal).
-2. ID GTM dans la config du site, conteneur importé et publié (`gtm_container.py`).
-3. Conversions Google Ads créées et importées dans GTM.
-4. Domaine final dans canonical, `_next`, sitemap.
-5. Test de bout en bout du formulaire.
+Déploiement : push sur `main` → `.github/workflows/deploy-ssh.yml` (rsync SSH vers IONOS), actif quand la variable de dépôt `DEPLOY` vaut `on`.
+
+## Reste à faire
+1. Adresse e-mail de Thomas : `EMAIL` dans build.py, `$DEST` dans contact.php.
+2. ID GTM dans build.py, conteneur importé et publié ; conversions Google Ads.
+3. Test de bout en bout du formulaire (`contact.php?test=1`).
+4. À confirmer avec Thomas : zone d'intervention (communes à moins de 30 km de Portes), devis gratuit, assurance décennale, logo haute définition, autres photos de chantier.
