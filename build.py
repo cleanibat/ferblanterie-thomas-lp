@@ -79,6 +79,7 @@ HOME = dict(
     sub="Rénovation de toiture, réparation de fuites, gouttières et ornementation en zinc et cuivre, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
     need="",
     og="img/thomas-toiture-ardoise.jpg",
+    hero=("hero-accueil", "ardoises-liteaux-aretier"),
     faq=["prix", "mairie", "tempete",
          ("Intervenez-vous sur les maisons anciennes ?", "Oui. Ardoise, tuile plate, zinc et cuivre : nous travaillons sur le bâti ancien comme sur les maisons récentes, en respectant les matériaux d'origine."),
          "pros"],
@@ -93,6 +94,7 @@ RENO = dict(
     sub="Réfection complète ou partielle de votre couverture, autour de Conches-en-Ouche, Évreux et Le Neubourg. Un artisan couvreur zingueur, un devis gratuit et détaillé.",
     need="Rénovation de toiture",
     og="img/ardoises-colombages-lucarnes.jpg",
+    hero=("hero-renovation", "hero-renovation-m"),
     signs=[("TILE", "Tuiles ou ardoises abîmées", "Cassées, glissées, poreuses ou couvertes de mousse."),
            ("CEILING", "Traces dans les combles", "Taches, bois humide ou goutte lors des fortes pluies."),
            ("ROOF", "Faîtage et rives fatigués", "Mortier fissuré, tuiles faîtières qui bougent."),
@@ -126,6 +128,7 @@ FUITE = dict(
     sub="Nous trouvons d'où vient l'eau et réparons la couverture ou la zinguerie en cause, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
     need="Réparation de fuite",
     og="img/fenetre-de-toit-apres.jpg",
+    hero=("hero-fuite", "fenetre-de-toit-apres"),
     signs=[("CEILING", "Tache au plafond", "Auréole, peinture qui cloque ou plâtre qui gonfle."),
            ("DROP", "Gouttes dans les combles", "Bois humide ou isolant mouillé après la pluie."),
            ("TILE", "Tuile cassée ou glissée", "Souvent après un coup de vent ou un hiver rigoureux."),
@@ -157,6 +160,7 @@ GOUTT = dict(
     sub="Gouttières, chéneaux, descentes et habillages façonnés par un ferblantier, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
     need="Gouttières / zinguerie",
     og="img/gouttiere-descente-angle.jpg",
+    hero=("hero-gouttieres", "bac-acier-rive-gouttiere"),
     signs=[("GUTTER", "Gouttière qui déborde", "L'eau passe par-dessus et coule le long du mur."),
            ("DROP", "Fuite aux jonctions", "Goutte à goutte aux raccords, aux angles ou aux talons."),
            ("WALL", "Traces sur la façade", "Coulures, mousse ou enduit qui se décolle sous la gouttière."),
@@ -295,7 +299,7 @@ def asset_v(f):  # version dans l'URL : le navigateur recharge le CSS/JS dès qu
 def header():
     return f"""<header class="top">
   <div class="wrap top-in">
-    <a class="brand" href="./" aria-label="{BRAND}, accueil"><img src="img/logo.png" width="71" height="56" alt="Logo {BRAND}"></a>
+    <a class="brand" href="./" aria-label="{BRAND}, accueil"><img src="img/logo-badge.png" width="91" height="72" alt="Logo {BRAND}"></a>
     <div class="top-cta">
       <a class="btn btn-call" href="tel:{TEL_INT}">{I['PHONE']}<span>{TEL_FR}</span></a>
       <a class="btn btn-main btn-sm top-devis" href="#devis">Devis gratuit</a>
@@ -320,7 +324,7 @@ def footer():
     mail = f'<a href="mailto:{EMAIL}">{EMAIL}</a><br>' if EMAIL else ""
     return f"""<footer class="foot">
   <div class="wrap foot-in">
-    <div><a class="brand" href="./"><img src="img/logo.png" width="91" height="72" alt="" loading="lazy"></a>
+    <div><a class="brand" href="./"><img src="img/logo-badge.png" width="122" height="96" alt="" loading="lazy"></a>
       <p>Couvreur zingueur à Portes (27). Couverture, zinguerie et ornementation en zinc et cuivre dans l'Eure.</p></div>
     <div><h3>Contact</h3><p><a href="tel:{TEL_INT}">{TEL_FR}</a><br>{mail}{STREET}<br>{CP} {CITY}<br><span class="muted">{HOURS_TXT}</span></p></div>
     <div><h3>Prestations</h3><p>{links}<a href="{INSTAGRAM}" rel="noopener">Instagram</a></p></div>
@@ -356,7 +360,9 @@ def form(p):
 
 def hero(p):
     reas = "".join(f'<li>{I[ic]}<span><b>{e(t)}</b> {e(d)}</span></li>' for ic, t, d in REASSURANCE)
+    desk, mob = p["hero"]
     return f"""<section class="hero">
+  <picture class="hero-bg"><source media="(max-width:720px)" srcset="img/{mob}.jpg"><img src="img/{desk}.jpg" alt="" fetchpriority="high"></picture>
   <div class="wrap hero-in">
     <div class="hero-txt">
       <p class="eyebrow">{e(p['eyebrow'])}</p>
