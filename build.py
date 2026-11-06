@@ -106,8 +106,10 @@ RENO = dict(
            ("Annexes et garages", "Bac acier et bardage", "Couverture en bac acier sur voligeage, pignon bardé du même profil.",
             ["Bac acier anthracite", "Bardage de pignon", "Rives et gouttières"])],
     photo="ardoises-liteaux-aretier",
-    ba=("bac-acier-avant-tole", "bac-acier-apres-appentis-pignon", "Avant / après", "Une annexe <em>couverte à neuf</em>",
-        "Ancienne tôle déposée, voligeage bois, puis bac acier anthracite sur le toit et le pignon."),
+    ba=("Avant / après", "Deux chantiers <em>avant et après</em>",
+        "Une annexe passée de la vieille tôle au bac acier, et une fenêtre de toit remplacée avec son raccord.",
+        [("bac-acier-avant-tole", "bac-acier-apres-appentis-pignon", "Annexe couverte en bac acier"),
+         ("fenetre-de-toit-avant", "fenetre-de-toit-apres", "Fenêtre de toit remplacée")]),
     gallery=("Sur nos chantiers", "Ardoise, bois <em>et acier</em>",
              ["ardoises-colombages-lucarnes", "voligeage-isolant-reflechissant", "lucarnes-maison-meuliere", "bac-acier-ossature-pignon", "bac-acier-pose-en-cours"]),
     steps=[("Visite et diagnostic", "Nous montons voir la couverture et vous expliquons ce qui doit être refait."),
@@ -127,8 +129,8 @@ FUITE = dict(
     h1="Fuite de toiture : <em>recherche et réparation</em>",
     sub="Nous trouvons d'où vient l'eau et réparons la couverture ou la zinguerie en cause, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
     need="Réparation de fuite",
-    og="img/fenetre-de-toit-apres.jpg",
-    hero=("hero-fuite", "fenetre-de-toit-apres"),
+    og="img/card-fuite.jpg",
+    hero=("hero-fuite", "couvertines-solin-angle"),
     signs=[("CEILING", "Tache au plafond", "Auréole, peinture qui cloque ou plâtre qui gonfle."),
            ("DROP", "Gouttes dans les combles", "Bois humide ou isolant mouillé après la pluie."),
            ("TILE", "Tuile cassée ou glissée", "Souvent après un coup de vent ou un hiver rigoureux."),
@@ -139,9 +141,7 @@ FUITE = dict(
             ["Tuiles et ardoises remplacées", "Faîtage et rives repris", "Noues refaites"]),
            ("Zinguerie", "Raccords étanches", "Les points sensibles sont souvent les jonctions entre la toiture et ce qui la traverse.",
             ["Abergements de cheminée", "Raccords de fenêtre de toit", "Chéneaux et gouttières"])],
-    photo="couvertines-solin-angle",
-    ba=("fenetre-de-toit-avant", "fenetre-de-toit-apres", "Avant / après", "Une fenêtre de toit <em>et son raccord</em>",
-        "Les fenêtres de toit sont un point sensible de la couverture : ici, fenêtre et raccord d'étanchéité remplacés."),
+    photo="couvertine-detail-rive",
     steps=[("Appel ou formulaire", "Décrivez-nous la fuite : où, depuis quand, par quel temps."),
            ("Recherche de fuite", "Nous inspectons la toiture et vous montrons la cause."),
            ("Réparation", "Devis détaillé, puis réparation de la couverture ou de la zinguerie.")],
@@ -159,7 +159,7 @@ GOUTT = dict(
     h1="Gouttières et zinguerie <em>zinc, cuivre, aluminium</em>",
     sub="Gouttières, chéneaux, descentes et habillages façonnés par un ferblantier, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
     need="Gouttières / zinguerie",
-    og="img/gouttiere-descente-angle.jpg",
+    og="img/card-gouttieres.jpg",
     hero=("hero-gouttieres", "bac-acier-rive-gouttiere"),
     signs=[("GUTTER", "Gouttière qui déborde", "L'eau passe par-dessus et coule le long du mur."),
            ("DROP", "Fuite aux jonctions", "Goutte à goutte aux raccords, aux angles ou aux talons."),
@@ -172,8 +172,8 @@ GOUTT = dict(
            ("Ornementation", "Épis, girouettes et crêtes", "Les finitions en zinc ou en cuivre qui signent une toiture.",
             ["Épis de faîtage", "Girouettes", "Crêtes et lucarnes"])],
     photo="gouttiere-descente-angle",
-    gallery=("Sur nos chantiers", "Gouttières, descentes <em>et couvertines</em>",
-             ["gouttiere-descente-entree", "descente-pied-de-facade", "bac-acier-rive-gouttiere", "couvertines-toiture-terrasse", "couvertine-detail-rive", "girouette-cerf-cuivre"]),
+    gallery=("Sur nos chantiers", "Zinguerie <em>et ornementation</em>",
+             ["couvertines-toiture-terrasse", "couvertine-detail-rive", "girouette-cerf-cuivre"]),
     steps=[("Prise de mesures", "Nous relevons les longueurs, les pentes et les descentes."),
            ("Devis détaillé", "Métal, profil et finitions choisis avec vous."),
            ("Pose", "Dépose de l'ancien, pose et contrôle de l'écoulement.")],
@@ -185,12 +185,12 @@ GOUTT = dict(
 
 PAGES = [HOME, RENO, FUITE, GOUTT]
 SERVICES = [  # cartes de l'accueil
-    (RENO, "ardoises-colombages-lucarnes", "Rénovation de toiture", "Réfection complète ou partielle en tuile, ardoise, zinc ou bac acier."),
-    (FUITE, "fenetre-de-toit-apres", "Réparation de fuite", "Recherche de l'origine, puis réparation de la couverture ou de la zinguerie."),
-    (GOUTT, "gouttiere-descente-angle", "Gouttières et zinguerie", "Gouttières, chéneaux, descentes et habillages en zinc, cuivre ou aluminium."),
+    (RENO, "card-renovation", "Rénovation de toiture", "Réfection complète ou partielle en tuile, ardoise, zinc ou bac acier."),
+    (FUITE, "card-fuite", "Réparation de fuite", "Recherche de l'origine, puis réparation de la couverture ou de la zinguerie."),
+    (GOUTT, "card-gouttieres", "Gouttières et zinguerie", "Gouttières, chéneaux, descentes et habillages en zinc, cuivre ou aluminium."),
 ]
 HOME_GALLERY = ["bac-acier-apres-appentis-pignon", "ardoises-liteaux-aretier", "lucarnes-maison-meuliere",
-                "couvertines-toiture-terrasse", "bac-acier-pose-en-cours", "couvertines-solin-angle"]
+                "couvertines-toiture-terrasse", "bac-acier-pose-en-cours", "voligeage-isolant-reflechissant"]
 
 # Photos du site : nom de fichier -> (largeur, hauteur, texte alternatif, légende). Sources : fiche Google,
 # Instagram et Drive partagé par Aymeric le 06/11/2026 (métadonnées EXIF retirées).
@@ -206,9 +206,10 @@ PHOTOS = {
     "bac-acier-pose-en-cours": (750, 1000, "Pose de bac acier anthracite sur voligeage bois, échafaudage en place", "Pose du bac acier sur voligeage"),
     "bac-acier-ossature-pignon": (750, 1000, "Ossature bois du pignon et voligeage prêts à recevoir le bac acier", "Ossature bois du pignon avant bardage"),
     "bac-acier-rive-gouttiere": (750, 1000, "Gouttière et rive en bout de couverture en bac acier anthracite", "Rive et gouttière sur bac acier"),
-    "gouttiere-descente-angle": (750, 1000, "Gouttière et descente métalliques à l'angle d'une maison aux volets blancs", "Gouttière et descente à l'angle de la maison"),
-    "gouttiere-descente-entree": (750, 1000, "Gouttière et descente métalliques sur une maison de plain-pied", "Gouttière et descente posées"),
-    "descente-pied-de-facade": (750, 1000, "Descente d'eaux pluviales métallique fixée en pied de façade", "Descente d'eaux pluviales en pied de façade"),
+    "gouttiere-descente-angle": (560, 700, "Gouttière et descente métalliques à l'angle d'une maison aux volets blancs", "Gouttière et descente à l'angle de la maison"),
+    "card-renovation": (800, 600, "Toiture en ardoise avec lucarne sur une maison à colombages", ""),
+    "card-fuite": (1000, 750, "Couvertine métallique et raccord étanche contre le mur d'une maison", ""),
+    "card-gouttieres": (1000, 750, "Gouttière en bout de couverture en bac acier anthracite", ""),
     "couvertines-toiture-terrasse": (750, 1000, "Couvertines métalliques posées autour d'une toiture terrasse", "Couvertines autour d'une toiture terrasse"),
     "couvertine-detail-rive": (750, 1000, "Détail d'une couvertine métallique en rive de toiture terrasse", "Couvertine en rive de toiture terrasse"),
     "couvertines-solin-angle": (750, 1000, "Couvertines métalliques et solin à l'angle d'une toiture terrasse, contre le mur de la maison", "Couvertines et solin contre le mur"),
@@ -414,8 +415,10 @@ def gallery(names):
     # les photos paysage occupent deux colonnes
     return '<div class="gallery">' + "".join(figure(n, "photo g-item" + (" wide" if PHOTOS[n][0] > PHOTOS[n][1] else "")) for n in names) + "</div>"
 
-def before_after(before, after):
-    return f'<div class="ba">{figure(before, "photo", badge="Avant")}{figure(after, "photo", badge="Après")}</div>'
+def before_after(pairs):
+    blocks = "".join(f'<div class="ba-pair"><h3>{e(title)}</h3><div class="ba">{figure(b, "photo", badge="Avant")}{figure(a, "photo", badge="Après")}</div></div>'
+                     for b, a, title in pairs)
+    return f'<div class="ba-list">{blocks}</div>'
 
 def page(p, body):
     faq = faq_items(p["faq"])
@@ -471,8 +474,8 @@ def service(p):
                     '<div class="split split-wide"><div class="cards">' + works + "</div>"
                     + figure(p["photo"]) + "</div>", cls="sec-alt", sid="prestations")
     if p.get("ba"):
-        before, after, eyebrow, h2, lead = p["ba"]
-        body += section(eyebrow, h2, before_after(before, after), lead=e(lead), sid="avant-apres", center=True)
+        eyebrow, h2, lead, pairs = p["ba"]
+        body += section(eyebrow, h2, before_after(pairs), lead=e(lead), sid="avant-apres", center=True)
     if p.get("gallery"):
         eyebrow, h2, names = p["gallery"]
         body += section(eyebrow, h2, gallery(names), cls="sec-alt" if p.get("ba") else "", sid="realisations", center=True)

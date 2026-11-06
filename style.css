@@ -130,7 +130,10 @@ p{margin:0 0 1em}
 .gallery .photo img{aspect-ratio:4/5}
 .gallery .wide{grid-column:span 2}
 .gallery .wide img{aspect-ratio:auto;height:100%}
-.ba{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:820px;margin:0 auto}
+.ba-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:2rem;max-width:1000px;margin:0 auto}
+.ba-list:has(>:only-child){max-width:820px}
+.ba-pair h3{text-align:center;margin-bottom:.8rem}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .badge{position:absolute;top:.8rem;left:.8rem;font:700 .75rem/1 var(--font);letter-spacing:.08em;text-transform:uppercase;padding:.5rem .75rem;border-radius:999px;background:var(--night);color:#fff}
 .ba figure:last-child .badge{background:var(--copper)}
 
