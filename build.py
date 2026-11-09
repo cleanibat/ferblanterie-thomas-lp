@@ -189,7 +189,7 @@ SERVICES = [  # cartes de l'accueil
     (FUITE, "card-fuite", "Réparation de fuite", "Recherche de l'origine, puis réparation de la couverture ou de la zinguerie."),
     (GOUTT, "card-gouttieres", "Gouttières et zinguerie", "Gouttières, chéneaux, descentes et habillages en zinc, cuivre ou aluminium."),
 ]
-HOME_GALLERY = ["bac-acier-apres-appentis-pignon", "ardoises-liteaux-aretier", "fenetre-de-toit-apres",
+HOME_GALLERY = ["bac-acier-apres-appentis-pignon", "voligeage-isolant-reflechissant", "fenetre-de-toit-apres",
                 "couvertines-toiture-terrasse", "bac-acier-pose-en-cours", "gouttiere-descente-angle"]
 
 # Photos du site : nom de fichier -> (largeur, hauteur, texte alternatif, légende). Sources : fiche Google,
@@ -205,14 +205,14 @@ PHOTOS = {
     "bac-acier-ossature-pignon": (750, 1000, "Ossature bois du pignon et voligeage prêts à recevoir le bac acier", "Ossature bois du pignon avant bardage"),
     "bac-acier-rive-gouttiere": (750, 1000, "Gouttière et rive en bout de couverture en bac acier anthracite", "Rive et gouttière sur bac acier"),
     "gouttiere-descente-angle": (560, 700, "Gouttière et descente métalliques à l'angle d'une maison aux volets blancs", "Gouttière et descente à l'angle de la maison"),
-    "card-renovation": (1000, 750, "Rénovation de toiture : voligeage bois et isolant réfléchissant posés avant la couverture", ""),
+    "card-renovation": (960, 720, "Rénovation de toiture : ardoises posées sur liteaux neufs le long d'un arêtier", ""),
     "card-fuite": (1000, 750, "Couvertine métallique et raccord étanche contre le mur d'une maison", ""),
     "card-gouttieres": (1000, 750, "Gouttière en bout de couverture en bac acier anthracite", ""),
     "couvertines-toiture-terrasse": (750, 1000, "Couvertines métalliques posées autour d'une toiture terrasse", "Couvertines autour d'une toiture terrasse"),
     "couvertine-detail-rive": (750, 1000, "Détail d'une couvertine métallique en rive de toiture terrasse", "Couvertine en rive de toiture terrasse"),
     "couvertines-solin-angle": (750, 1000, "Couvertines métalliques et solin à l'angle d'une toiture terrasse, contre le mur de la maison", "Couvertines et solin contre le mur"),
     "fenetre-de-toit-avant": (750, 1000, "Ancienne fenêtre de toit avec volet roulant fermé sur une toiture en tuiles, avant travaux", "Ancienne fenêtre de toit"),
-    "fenetre-de-toit-apres": (750, 1000, "Fenêtre de toit neuve avec volet roulant solaire et raccord d'étanchéité sur tuiles", "Fenêtre neuve et raccord d'étanchéité"),
+    "fenetre-de-toit-apres": (750, 1000, "Fenêtre de toit neuve avec volet roulant solaire et raccord d'étanchéité sur tuiles", "Velux neuf et raccord d'étanchéité"),
 }
 REASSURANCE = [("DOC", "Devis gratuit", "écrit et détaillé"), ("USER", "Un seul interlocuteur", "l'artisan, du devis à la fin du chantier"),
                ("METAL", "Tous métaux", "zinc, cuivre, acier, aluminium"), ("BROOM", "Chantier nettoyé", "avant notre départ")]
