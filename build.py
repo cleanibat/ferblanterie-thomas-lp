@@ -105,7 +105,7 @@ RENO = dict(
             ["Tuiles et ardoises remplacées", "Raccord avec l'existant", "Fenêtres de toit et cheminées"]),
            ("Annexes et garages", "Bac acier et bardage", "Couverture en bac acier sur voligeage, pignon bardé du même profil.",
             ["Bac acier anthracite", "Bardage de pignon", "Rives et gouttières"])],
-    photo="voligeage-isolant-reflechissant",
+    photo="thomas-toiture-ardoise",
     ba=("Avant / après", "Deux chantiers <em>avant et après</em>",
         "Une annexe passée de la vieille tôle au bac acier, et une fenêtre de toit remplacée avec son raccord.",
         [("bac-acier-avant-tole", "bac-acier-apres-appentis-pignon", "Annexe couverte en bac acier"),
@@ -189,7 +189,7 @@ SERVICES = [  # cartes de l'accueil
     (FUITE, "card-fuite", "Réparation de fuite", "Recherche de l'origine, puis réparation de la couverture ou de la zinguerie."),
     (GOUTT, "card-gouttieres", "Gouttières et zinguerie", "Gouttières, chéneaux, descentes et habillages en zinc, cuivre ou aluminium."),
 ]
-HOME_GALLERY = ["bac-acier-apres-appentis-pignon", "voligeage-isolant-reflechissant", "fenetre-de-toit-apres",
+HOME_GALLERY = ["bac-acier-apres-appentis-pignon", "bac-acier-ossature-pignon", "fenetre-de-toit-apres",
                 "couvertines-toiture-terrasse", "bac-acier-pose-en-cours", "gouttiere-descente-angle"]
 
 # Photos du site : nom de fichier -> (largeur, hauteur, texte alternatif, légende). Sources : fiche Google,
@@ -198,7 +198,6 @@ PHOTOS = {
     "thomas-toiture-ardoise": (505, 828, f"{OWNER.split()[0]} sur une toiture en ardoise en cours de réfection, contre une cheminée en brique", "Réfection d'une couverture en ardoise"),
     "girouette-cerf-cuivre": (900, 1200, "Girouette en cuivre en forme de cerf au sommet d'un pignon", "Girouette en cuivre posée sur un pignon"),
     "ardoises-liteaux-aretier": (750, 1000, "Ardoises posées sur liteaux le long d'un arêtier, chantier en cours", "Pose d'ardoises sur liteaux, détail d'arêtier"),
-    "voligeage-isolant-reflechissant": (750, 1000, "Voligeage bois et isolant réfléchissant posés avant la couverture", "Voligeage et isolant réfléchissant avant couverture"),
     "bac-acier-avant-tole": (750, 1000, "Annexe couverte d'une ancienne tôle nervurée, avant travaux", "Ancienne couverture en tôle nervurée"),
     "bac-acier-apres-appentis-pignon": (750, 1000, "Annexe couverte de bac acier anthracite, pignon bardé du même bac acier", "Bac acier anthracite, pignon bardé"),
     "bac-acier-pose-en-cours": (750, 1000, "Pose de bac acier anthracite sur voligeage bois, échafaudage en place", "Pose du bac acier sur voligeage"),
