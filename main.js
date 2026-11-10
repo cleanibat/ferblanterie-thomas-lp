@@ -11,6 +11,12 @@
     });
   });
 
+  /* Zone de la campagne (?zone=…, posée sur <html> dans le <head>) : conservée dans les liens vers les autres pages services */
+  var zone = document.documentElement.getAttribute("data-zone");
+  if (zone) document.querySelectorAll("a[data-zl]").forEach(function (a) {
+    try { var u = new URL(a.getAttribute("href"), location.href); u.searchParams.set("zone", zone); a.href = u.toString(); } catch (e) {}
+  });
+
   /* Consentement aux cookies (Mode Consentement v2). Valeur par défaut posée dans le <head>, avant GTM. */
   var CKEY = "fdt_consent", CTTL = 182 * 864e5;
   var consent = null;

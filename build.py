@@ -21,13 +21,8 @@ YEAR, TODAY = datetime.date.today().year, datetime.date.today().isoformat()
 CONSENT_KEY = "fdt_consent"
 CONSENT_DAYS = 182                                  # choix cookies conservé 6 mois (recommandation CNIL)
 
-# Communes à moins de 30 km de Portes (geo.api.gouv.fr). Zone à confirmer avec Thomas.
-ZONES = [
-    ("Pays de Conches et d'Ouche", ["Portes", "Conches-en-Ouche", "La Bonneville-sur-Iton", "Breteuil", "Mesnils-sur-Iton", "Mesnil-en-Ouche"]),
-    ("Évreux et alentours", ["Évreux", "Saint-Sébastien-de-Morsent", "Arnières-sur-Iton", "Gravigny", "Guichainville", "Louviers"]),
-    ("Le Neubourg et la Risle", ["Le Neubourg", "Beaumont-le-Roger", "Serquigny", "Brionne", "Bernay"]),
-]
-CITIES = [c for _, cs in ZONES for c in cs]
+# Départements couverts (confirmés par Thomas le 10/11/2026) : 27, 14, 61, 28, 78, 75.
+DEPTS = ["Eure", "Calvados", "Orne", "Eure-et-Loir", "Yvelines", "Paris"]
 
 e = html.escape
 
@@ -68,30 +63,33 @@ FAQ_COMMON = {
                 "Ne montez pas sur votre toit. Appelez-nous : nous vérifions la couverture, les faîtages et la zinguerie, puis nous remplaçons ce qui a été arraché ou déplacé."),
     "pros": ("Travaillez-vous pour les professionnels ?",
              "Oui. Nous intervenons pour les particuliers comme pour les entreprises, les syndics et les collectivités."),
+    "ancien": ("Intervenez-vous sur les maisons anciennes ?",
+               "Oui. Ardoise, tuile plate, zinc et cuivre : nous travaillons sur le bâti ancien comme sur les maisons récentes, en respectant les matériaux d'origine."),
 }
 
 HOME = dict(
     file="index.html", lp="Accueil",
-    title="Couvreur zingueur dans l'Eure (27) | La Ferblanterie de Thomas",
-    desc="Couvreur zingueur à Portes, près de Conches-en-Ouche et d'Évreux : rénovation de toiture, réparation de fuites, gouttières et ornementation. Devis gratuit.",
+    title="Couvreur zingueur de la Normandie à Paris | La Ferblanterie de Thomas",
+    desc="Couvreur zingueur basé à Portes (27) : rénovation de toiture, fuites, gouttières et ornementation dans l'Eure, le Calvados, l'Orne, l'Eure-et-Loir, les Yvelines et à Paris. Devis gratuit.",
     eyebrow="Couvreur zingueur · Portes (27)",
-    h1="Couverture et zinguerie <em>dans l'Eure</em>",
-    sub="Rénovation de toiture, réparation de fuites, gouttières et ornementation en zinc et cuivre, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
+    h1="Couverture et zinguerie <em>de la Normandie à Paris</em>",
+    sub="Rénovation de toiture, réparation de fuites, gouttières et ornementation en zinc et cuivre. Basés à Portes, dans l'Eure, nous intervenons jusqu'à Caen, Chartres et Paris.",
     need="",
     og="img/thomas-toiture-ardoise.jpg",
     hero=("hero-accueil", "ardoises-liteaux-aretier"),
-    faq=["prix", "mairie", "tempete",
-         ("Intervenez-vous sur les maisons anciennes ?", "Oui. Ardoise, tuile plate, zinc et cuivre : nous travaillons sur le bâti ancien comme sur les maisons récentes, en respectant les matériaux d'origine."),
-         "pros"],
+    faq=["prix", "mairie", "tempete", "ancien", "pros"],
 )
+HOME_STEPS = [("Appel ou formulaire", "Décrivez-nous votre toiture et ce qui vous inquiète."),
+              ("Visite et devis gratuit", "Nous venons voir et vous remettons un devis écrit et détaillé."),
+              ("Travaux", "Couverture et zinguerie réalisées, chantier nettoyé avant de partir.")]
 
 RENO = dict(
     file="renovation-toiture.html", lp="Rénovation de toiture",
     title="Rénovation de toiture dans l'Eure | La Ferblanterie de Thomas",
-    desc="Réfection de toiture en tuile, ardoise, zinc ou bac acier autour de Conches-en-Ouche et Évreux : écran sous-toiture, liteaux, faîtage. Devis gratuit.",
-    eyebrow="Rénovation de toiture · Eure (27)",
+    desc="Réfection de toiture en tuile, ardoise, zinc ou bac acier dans l'Eure et les départements voisins : écran sous-toiture, liteaux, faîtage. Devis gratuit.",
+    eyebrow="Rénovation de toiture · {zs}",
     h1="Rénovation de toiture <em>tuile, ardoise et zinc</em>",
-    sub="Réfection complète ou partielle de votre couverture, autour de Conches-en-Ouche, Évreux et Le Neubourg. Un artisan couvreur zingueur, un devis gratuit et détaillé.",
+    sub="Réfection complète ou partielle de votre couverture {z}. Un artisan couvreur zingueur, un devis gratuit et détaillé.",
     need="Rénovation de toiture",
     og="img/card-renovation.jpg",
     hero=("hero-accueil", "ardoises-liteaux-aretier"),
@@ -124,10 +122,10 @@ RENO = dict(
 FUITE = dict(
     file="reparation-fuite-toiture.html", lp="Réparation de fuite",
     title="Réparation de fuite de toiture dans l'Eure | Ferblanterie de Thomas",
-    desc="Fuite de toiture autour de Conches-en-Ouche et Évreux : recherche de l'origine, tuiles, ardoises, faîtage, noues et abergements réparés. Appelez le 07 78 37 52 91.",
-    eyebrow="Réparation de fuite · Eure (27)",
+    desc="Fuite de toiture dans l'Eure et les départements voisins : recherche de l'origine, tuiles, ardoises, faîtage, noues et abergements réparés. Appelez le 07 78 37 52 91.",
+    eyebrow="Réparation de fuite · {zs}",
     h1="Fuite de toiture : <em>recherche et réparation</em>",
-    sub="Nous trouvons d'où vient l'eau et réparons la couverture ou la zinguerie en cause, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
+    sub="Nous trouvons d'où vient l'eau et réparons la couverture ou la zinguerie en cause, {z}.",
     need="Réparation de fuite",
     og="img/card-fuite.jpg",
     hero=("hero-fuite", "couvertines-solin-angle"),
@@ -154,10 +152,10 @@ FUITE = dict(
 GOUTT = dict(
     file="gouttieres-zinguerie.html", lp="Gouttières et zinguerie",
     title="Gouttières et zinguerie dans l'Eure | La Ferblanterie de Thomas",
-    desc="Pose et remplacement de gouttières, chéneaux et descentes en zinc, cuivre ou aluminium autour de Conches-en-Ouche et Évreux. Devis gratuit.",
-    eyebrow="Gouttières et zinguerie · Eure (27)",
+    desc="Pose et remplacement de gouttières, chéneaux et descentes en zinc, cuivre ou aluminium dans l'Eure et les départements voisins. Devis gratuit.",
+    eyebrow="Gouttières et zinguerie · {zs}",
     h1="Gouttières et zinguerie <em>zinc, cuivre, aluminium</em>",
-    sub="Gouttières, chéneaux, descentes et habillages façonnés par un ferblantier, autour de Conches-en-Ouche, Évreux et Le Neubourg.",
+    sub="Gouttières, chéneaux, descentes et habillages façonnés par un ferblantier, {z}.",
     need="Gouttières / zinguerie",
     og="img/card-gouttieres.jpg",
     hero=("hero-gouttieres", "bac-acier-rive-gouttiere"),
@@ -191,6 +189,129 @@ SERVICES = [  # cartes de l'accueil
 ]
 HOME_GALLERY = ["bac-acier-apres-appentis-pignon", "bac-acier-ossature-pignon", "fenetre-de-toit-apres",
                 "couvertines-toiture-terrasse", "bac-acier-pose-en-cours", "gouttiere-descente-angle"]
+
+# ---------- Pages zones : une par campagne Google Ads (même ciblage géographique) ----------
+# Chaque campagne ajoute « zone=<key> » à ses URL (suffixe d'URL finale de la campagne) : les pages services
+# affichent alors la zone de l'annonce dans le hero, le bloc zone et les liens (voir zone_head()).
+# Pas de fausse adresse locale : la base reste Portes (27).
+ZONE_DEFAULT = dict(key="default", short="Eure et départements voisins", phrase="dans l'Eure et les départements voisins")
+
+Z_EURE = dict(
+    key="eure", file="couvreur-eure.html", lp="Couvreur dans l'Eure", name="Eure", codes="27",
+    short="Eure (27)", phrase="partout dans l'Eure", towns="Évreux, Conches-en-Ouche, Bernay, Vernon",
+    title="Couvreur zingueur dans l'Eure (27) | La Ferblanterie de Thomas",
+    desc="Couvreur zingueur à Portes, entre Conches-en-Ouche et Évreux : rénovation de toiture, fuites, gouttières et ornementation partout dans l'Eure. Devis gratuit.",
+    eyebrow="Eure (27) · Basés à Portes",
+    h1="Couvreur zingueur <em>dans l'Eure</em>",
+    sub="Rénovation de toiture, réparation de fuites, gouttières et ornementation en zinc et cuivre, d'Évreux à Bernay et de Vernon à Verneuil-sur-Avre.",
+    need="", city_ph="Évreux, Bernay…", og="img/hero-bac-acier.jpg",
+    hero=("hero-bac-acier", "bac-acier-apres-appentis-pignon"),
+    roofs_h2="Les toits <em>de l'Eure</em>",
+    roofs_intro="Tuile plate, ardoise, zinc ou bac acier : nous travaillons sur les maisons anciennes comme sur les plus récentes, en respectant les matériaux d'origine.",
+    roofs=[("TILE", "Tuile plate de pays", "Longères et maisons de bourg du pays d'Ouche et du Neubourg."),
+           ("ROOF", "Ardoise naturelle", "Maisons de maître et manoirs de la vallée de l'Eure."),
+           ("METAL", "Zinc et cuivre", "Gouttières, noues, abergements et lucarnes façonnés sur mesure."),
+           ("WALL", "Annexes et garages", "Bac acier sur voligeage, pignon bardé du même profil.")],
+    photo="thomas-toiture-ardoise",
+    gallery=["fenetre-de-toit-apres", "couvertines-toiture-terrasse", "gouttiere-descente-angle"],
+    zone_h2="Partout <em>dans l'Eure</em>",
+    zone_lead="Basés à Portes, entre Conches-en-Ouche et Évreux, nous intervenons dans ces communes et leurs environs.",
+    areas=[("Portes, Conches et Évreux", ["Portes", "Conches-en-Ouche", "Évreux", "Breteuil", "La Bonneville-sur-Iton", "Saint-Sébastien-de-Morsent"]),
+           ("Le Neubourg, Bernay et la Risle", ["Le Neubourg", "Beaumont-le-Roger", "Bernay", "Brionne", "Pont-Audemer"]),
+           ("Vallée de l'Eure et Vexin", ["Louviers", "Val-de-Reuil", "Pacy-sur-Eure", "Vernon", "Les Andelys", "Gisors"]),
+           ("Sud de l'Eure", ["Verneuil-sur-Avre", "Saint-André-de-l'Eure", "Damville", "Rugles", "Nonancourt"])],
+    faq=[("Intervenez-vous partout dans l'Eure ?", "Oui. Nous sommes basés à Portes, entre Conches-en-Ouche et Évreux, et nous intervenons dans tout le département, de Vernon à Bernay et de Pont-Audemer à Verneuil-sur-Avre."),
+         "prix", "mairie", "tempete", "ancien"],
+)
+
+Z_CALVADOS = dict(
+    key="calvados-orne", file="couvreur-calvados-orne.html", lp="Couvreur dans le Calvados et l'Orne", name="Calvados et Orne", codes="14 · 61",
+    short="Calvados (14) et Orne (61)", phrase="dans le Calvados et l'Orne", towns="Lisieux, Caen, Deauville, L'Aigle, Alençon",
+    title="Couvreur zingueur Calvados et Orne | La Ferblanterie de Thomas",
+    desc="Rénovation de toiture, réparation de fuites, gouttières et ornementation en zinc et cuivre dans le Calvados et l'Orne : Lisieux, Caen, Deauville, L'Aigle, Alençon. Devis gratuit.",
+    eyebrow="Calvados (14) · Orne (61)",
+    h1="Couvreur zingueur <em>dans le Calvados et l'Orne</em>",
+    sub="Ardoise, tuile plate, zinc et cuivre : rénovation de toiture, réparation de fuites et gouttières, de Lisieux à Caen et de L'Aigle à Alençon.",
+    need="", city_ph="Lisieux, Caen…", og="img/hero-accueil.jpg",
+    hero=("hero-accueil", "ardoises-liteaux-aretier"),
+    roofs_h2="Les toits <em>du Calvados et de l'Orne</em>",
+    roofs_intro="Ardoise des villas, tuile plate des maisons à pans de bois, zinc des lucarnes : chaque toiture est reprise avec des matériaux proches de l'existant.",
+    roofs=[("ROOF", "Ardoise des villas", "Villas de la Côte Fleurie, de Honfleur à Cabourg, et maisons de Caen."),
+           ("TILE", "Tuile plate de pays", "Maisons à pans de bois du Pays d'Auge et longères du Perche."),
+           ("STAR", "Épis, crêtes et lucarnes", "Les finitions en zinc ou en cuivre qui coiffent villas et manoirs."),
+           ("WIND", "Air marin", "Près de la mer, fixations en inox et métaux qui résistent au sel.")],
+    photo="girouette-cerf-cuivre",
+    gallery=["bac-acier-apres-appentis-pignon", "couvertine-detail-rive", "fenetre-de-toit-apres"],
+    zone_h2="Dans le Calvados <em>et l'Orne</em>",
+    zone_lead="Depuis Portes (27), nous intervenons dans tout le Calvados et l'Orne, dans ces communes comme dans leurs environs.",
+    areas=[("Pays d'Auge", ["Lisieux", "Pont-l'Évêque", "Livarot", "Orbec", "Vimoutiers"]),
+           ("Côte Fleurie", ["Honfleur", "Trouville-sur-Mer", "Deauville", "Houlgate", "Cabourg"]),
+           ("Caen et le Bessin", ["Caen", "Hérouville-Saint-Clair", "Ifs", "Falaise", "Bayeux"]),
+           ("Orne", ["L'Aigle", "Gacé", "Argentan", "Alençon", "Mortagne-au-Perche", "Bellême"])],
+    faq=[("Vous êtes dans l'Eure : intervenez-vous chez nous ?", "Oui. Depuis Portes, nous intervenons dans tout le Calvados et l'Orne. Nous venons voir votre toiture et le devis est gratuit."),
+         ("Travaillez-vous près de la mer ?", "Oui. Sur la côte, nous choisissons des fixations en inox et des métaux qui résistent à l'air salin."),
+         ("Intervenez-vous sur les maisons à pans de bois ?", "Oui. Tuile plate ou ardoise, nous reprenons les couvertures du bâti ancien en respectant les matériaux d'origine."),
+         "mairie", "prix"],
+)
+
+Z_YVELINES = dict(
+    key="eure-et-loir-yvelines", file="couvreur-eure-et-loir-yvelines.html", lp="Couvreur en Eure-et-Loir et dans les Yvelines", name="Eure-et-Loir et Yvelines", codes="28 · 78",
+    short="Eure-et-Loir (28) et Yvelines (78)", phrase="en Eure-et-Loir et dans les Yvelines", towns="Dreux, Chartres, Mantes-la-Jolie, Versailles",
+    title="Couvreur zingueur Eure-et-Loir et Yvelines | Ferblanterie de Thomas",
+    desc="Rénovation de toiture, réparation de fuites, gouttières et ornementation en Eure-et-Loir et dans les Yvelines : Dreux, Chartres, Mantes-la-Jolie, Rambouillet, Versailles. Devis gratuit.",
+    eyebrow="Eure-et-Loir (28) · Yvelines (78)",
+    h1="Couvreur zingueur <em>en Eure-et-Loir et dans les Yvelines</em>",
+    sub="Tuile, ardoise, zinc et cuivre : rénovation de toiture, réparation de fuites et gouttières, de Dreux à Chartres et de Mantes-la-Jolie à Versailles.",
+    need="", city_ph="Dreux, Versailles…", og="img/hero-maison-tuiles.jpg",
+    hero=("hero-maison-tuiles", "hero-maison-tuiles-m"),
+    roofs_h2="Les toits <em>d'Eure-et-Loir et des Yvelines</em>",
+    roofs_intro="Fermes en tuile plate, maisons bourgeoises à la Mansart, pavillons en meulière : chaque toiture est reprise avec des matériaux proches de l'existant.",
+    roofs=[("TILE", "Tuile plate", "Fermes de Beauce, longères du Perche et maisons du Drouais."),
+           ("ROOF", "Toits à la Mansart", "Brisis en ardoise et terrassons en zinc, de Versailles à Saint-Germain."),
+           ("WALL", "Pavillons en meulière", "Tuiles à emboîtement, faîtages et rives remis en état."),
+           ("METAL", "Zinc et cuivre", "Gouttières, chéneaux, noues et habillages de lucarnes.")],
+    photo="ardoises-liteaux-aretier",
+    gallery=["fenetre-de-toit-apres", "bac-acier-pose-en-cours", "gouttiere-descente-angle"],
+    zone_h2="En Eure-et-Loir <em>et dans les Yvelines</em>",
+    zone_lead="Depuis Portes (27), nous intervenons en Eure-et-Loir et dans les Yvelines, dans ces communes comme dans leurs environs.",
+    areas=[("Drouais et Thymerais", ["Dreux", "Vernouillet", "Anet", "Nogent-le-Roi", "Châteauneuf-en-Thymerais"]),
+           ("Chartres et le Perche", ["Chartres", "Lucé", "Maintenon", "Épernon", "Nogent-le-Rotrou", "La Loupe"]),
+           ("Mantois et pays houdanais", ["Mantes-la-Jolie", "Houdan", "Bonnières-sur-Seine", "Septeuil", "Les Mureaux"]),
+           ("Rambouillet et Versailles", ["Rambouillet", "Montfort-l'Amaury", "Plaisir", "Versailles", "Saint-Germain-en-Laye", "Poissy"])],
+    faq=[("Intervenez-vous dans les Yvelines comme en Eure-et-Loir ?", "Oui. Depuis Portes (27), nous intervenons de Dreux à Chartres et de Mantes-la-Jolie à Versailles. Nous venons voir votre toiture et le devis est gratuit."),
+         ("Refaites-vous les toits à la Mansart ?", "Oui. Brisis en ardoise, terrasson en zinc, lucarnes et noues : c'est le cœur de notre métier de couvreur zingueur."),
+         "mairie", "tempete", "prix"],
+)
+
+Z_PARIS = dict(
+    key="paris", file="couvreur-paris.html", lp="Couvreur à Paris", name="Paris", codes="75",
+    short="Paris (75)", phrase="à Paris", towns="Les vingt arrondissements, copropriétés et maisons de ville",
+    title="Couvreur zingueur à Paris : zinc et ardoise | Ferblanterie de Thomas",
+    desc="Couverture en zinc et en ardoise, chéneaux, lucarnes et ornementation à Paris : un couvreur zingueur ferblantier pour les copropriétés et les maisons de ville. Devis gratuit.",
+    eyebrow="Paris (75) · Zinc et ardoise",
+    h1="Couvreur zingueur <em>à Paris</em>",
+    sub="Couvertures en zinc et en ardoise, chéneaux, lucarnes et ornementation : un couvreur zingueur ferblantier pour les copropriétés et les maisons de ville.",
+    need="", city_ph="Paris 15e…", og="img/hero-fuite.jpg",
+    hero=("hero-fuite", "couvertines-solin-angle"),
+    roofs_h2="Les toits <em>de Paris</em>",
+    roofs_intro="Le zinc couvre la majorité des toits de Paris. C'est le cœur du métier de ferblantier : façonner, poser et réparer le métal sur mesure.",
+    roofs=[("METAL", "Couverture en zinc", "Zinc à tasseaux ou à joint debout, réparé ou refait sur les immeubles parisiens."),
+           ("ROOF", "Brisis en ardoise", "Mansardes, lucarnes et œils-de-bœuf habillés d'ardoise et de zinc."),
+           ("GUTTER", "Chéneaux et descentes", "Chéneaux en zinc, gouttières et descentes refaits à l'identique."),
+           ("STAR", "Ornementation", "Épis, crêtes, corniches et habillages de lucarnes en zinc ou en cuivre.")],
+    photo="thomas-toiture-ardoise",
+    gallery=["couvertines-toiture-terrasse", "ardoises-liteaux-aretier", "girouette-cerf-cuivre"],
+    zone_h2="Dans <em>tout Paris</em>",
+    zone_lead="Depuis Portes (27), nous intervenons dans les vingt arrondissements, pour les copropriétés comme pour les maisons de ville.",
+    areas=[("Rive droite", ["1er", "2e", "3e", "4e", "8e", "9e", "10e", "11e", "12e", "16e", "17e", "18e", "19e", "20e"]),
+           ("Rive gauche", ["5e", "6e", "7e", "13e", "14e", "15e"])],
+    faq=[("Intervenez-vous en copropriété ?", "Oui. Nous établissons le devis pour le syndic ou le conseil syndical, et nous travaillons aussi pour les maisons de ville."),
+         ("Faut-il une autorisation pour l'échafaudage ?", "Oui. Un échafaudage ou une nacelle sur le trottoir demande une autorisation de la Ville de Paris. Nous en parlons dès la visite pour l'intégrer au planning."),
+         ("Réparez-vous les couvertures en zinc ?", "Oui. Zinc à tasseaux ou à joint debout, brisis en ardoise, chéneaux et lucarnes : c'est notre métier de ferblantier."),
+         "mairie", "prix"],
+)
+
+ZONES = [Z_EURE, Z_CALVADOS, Z_YVELINES, Z_PARIS]
 
 # Photos du site : nom de fichier -> (largeur, hauteur, texte alternatif, légende). Sources : fiche Google,
 # Instagram et Drive partagé par Aymeric le 06/11/2026 (métadonnées EXIF retirées).
@@ -250,7 +371,7 @@ def ld_business():
          "founder": OWNER,
          "address": {"@type": "PostalAddress", "streetAddress": STREET, "postalCode": CP, "addressLocality": CITY, "addressRegion": "Normandie", "addressCountry": "FR"},
          "geo": {"@type": "GeoCoordinates", "latitude": GEO[0], "longitude": GEO[1]},
-         "areaServed": [{"@type": "AdministrativeArea", "name": "Eure"}] + [{"@type": "City", "name": c} for c in CITIES],
+         "areaServed": [{"@type": "AdministrativeArea", "name": d} for d in DEPTS],
          "openingHoursSpecification": [
              {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:30", "closes": "18:00"},
              {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "07:30", "closes": "13:00"}],
@@ -319,13 +440,15 @@ def cookie_banner():
 
 def footer():
     links = "".join(f'<a href="{p["file"]}">{e(p["lp"])}</a><br>' for p in PAGES[1:])
+    zlinks = "".join(f'<a href="{z["file"]}">{e(z["name"])}</a><br>' for z in ZONES)
     mail = f'<a href="mailto:{EMAIL}">{EMAIL}</a><br>' if EMAIL else ""
     return f"""<footer class="foot">
   <div class="wrap foot-in">
     <div><a class="brand" href="./"><img src="img/logo-badge.png" width="122" height="96" alt="" loading="lazy"></a>
-      <p>Couvreur zingueur à Portes (27). Couverture, zinguerie et ornementation en zinc et cuivre dans l'Eure.</p></div>
+      <p>Couvreur zingueur à Portes (27). Couverture, zinguerie et ornementation en zinc et cuivre, de la Normandie à Paris.</p></div>
     <div><h3>Contact</h3><p><a href="tel:{TEL_INT}">{TEL_FR}</a><br>{mail}{STREET}<br>{CP} {CITY}<br><span class="muted">{HOURS_TXT}</span></p></div>
     <div><h3>Prestations</h3><p>{links}<a href="{INSTAGRAM}" rel="noopener">Instagram</a></p></div>
+    <div><h3>Zones d'intervention</h3><p>{zlinks}</p></div>
   </div>
   <div class="wrap foot-legal">© {YEAR} {BRAND} · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <button type="button" class="link-btn" data-consent-open>Gestion des cookies</button></div>
 </footer>
@@ -349,7 +472,7 @@ def form(p):
   <div class="row"><label>Nom et prénom<input type="text" name="Nom" required autocomplete="name"></label>
   <label>Téléphone<input type="tel" name="Téléphone" required autocomplete="tel" inputmode="tel"></label></div>
   <div class="row"><label>E-mail<input type="email" name="Email" required autocomplete="email"></label>
-  <label>Commune<input type="text" name="Localité" required autocomplete="address-level2" placeholder="Conches, Évreux…"></label></div>
+  <label>Commune<input type="text" name="Localité" required autocomplete="address-level2" placeholder="{e(p.get('city_ph', 'Évreux, Lisieux, Dreux…'))}"></label></div>
   <label>Votre besoin<select name="Besoin" required>{placeholder}{opts}</select></label>
   <label>Message <span class="opt">(facultatif)</span><textarea name="Message" rows="3" placeholder="Type de toiture (tuile, ardoise, zinc), problème constaté, accès…"></textarea></label>
   <button type="submit" class="btn btn-main btn-block" data-sending="Envoi…">Recevoir mon devis gratuit</button>
@@ -363,9 +486,9 @@ def hero(p):
   <picture class="hero-bg"><source media="(max-width:720px)" srcset="img/{mob}.jpg"><img src="img/{desk}.jpg" alt="" fetchpriority="high"></picture>
   <div class="wrap hero-in">
     <div class="hero-txt">
-      <p class="eyebrow">{e(p['eyebrow'])}</p>
+      <p class="eyebrow">{e(p['eyebrow']).replace("{zs}", zvar("short"))}</p>
       <h1>{p['h1']}</h1>
-      <p class="lead">{e(p['sub'])}</p>
+      <p class="lead">{e(p['sub']).replace("{z}", zvar("phrase"))}</p>
       <div class="cta"><a href="#devis" class="btn btn-main">{I['ARROW']}Demander un devis gratuit</a><a href="tel:{TEL_INT}" class="btn btn-ghost">{I['PHONE']}<span>{TEL_FR}</span></a></div>
       <ul class="reas">{reas}</ul>
     </div>
@@ -373,8 +496,8 @@ def hero(p):
   </div>
 </section>"""
 
-def section(eyebrow, h2, inner, lead="", cls="", sid="", center=False):
-    a = f' id="{sid}"' if sid else ""
+def section(eyebrow, h2, inner, lead="", cls="", sid="", center=False, zv=""):
+    a = (f' id="{sid}"' if sid else "") + (f' data-zv="{zv}"' if zv else "")
     c = " center" if center else ""
     lead_html = f'<p class="intro">{lead}</p>' if lead else ""
     return f'<section class="sec {cls}"{a}><div class="wrap"><div class="sec-head{c}"><p class="eyebrow">{eyebrow}</p><h2>{h2}</h2>{lead_html}</div>{inner}</div></section>\n'
@@ -388,9 +511,26 @@ def steps3(items):
 def chips(items):
     return '<ul class="chips">' + "".join(f"<li>{e(x)}</li>" for x in items) + "</ul>"
 
-def zone_block():
-    cols = "".join(f'<div class="zone"><h3>{e(t)}</h3>{chips(cs)}</div>' for t, cs in ZONES)
+def areas_block(z):
+    cols = "".join(f'<div class="zone"><h3>{e(t)}</h3>{chips(cs)}</div>' for t, cs in z["areas"])
     return f'<div class="zones">{cols}</div>'
+
+def zone_cards():
+    return '<div class="zcards">' + "".join(
+        f'<a class="zcard" href="{z["file"]}"><span class="zcodes">{z["codes"]}</span><h3>{e(z["name"])}</h3>'
+        f'<p>{e(z["towns"])}</p><span class="more">Voir la zone {I["ARROW"]}</span></a>' for z in ZONES) + "</div>"
+
+def zvar(field):
+    # une variante par zone ; une seule reste visible selon ?zone= (voir zone_head)
+    return "".join(f'<span data-zv="{z["key"]}">{e(z[field])}</span>' for z in [ZONE_DEFAULT] + ZONES)
+
+def zone_head():
+    # pages services : la zone de la campagne (?zone=) est posée sur <html> avant l'affichage, le CSS masque les autres variantes
+    keys = [z["key"] for z in ZONES]
+    js = ("(function(){try{var z=new URLSearchParams(location.search).get('zone');"
+          f"if({json.dumps(keys)}.indexOf(z)>-1)document.documentElement.setAttribute('data-zone',z)}}catch(e){{}}}})();")
+    hide = ['html:not([data-zone]) [data-zv]:not([data-zv="default"])'] + [f'html[data-zone="{k}"] [data-zv]:not([data-zv="{k}"])' for k in keys]
+    return f"<script>{js}</script>\n<style>{','.join(hide)}{{display:none!important}}</style>\n"
 
 def faq_block(items):
     return '<div class="faq">' + "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in items) + "</div>"
@@ -417,22 +557,26 @@ def before_after(pairs):
                      for b, a, title in pairs)
     return f'<div class="ba-list">{blocks}</div>'
 
-def page(p, body):
+def page(p, body, extra=""):
     faq = faq_items(p["faq"])
     ld_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
     crumbs = None if p is HOME else {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
         {"@type": "ListItem", "position": 2, "name": p["lp"], "item": url_of(p["file"])}]}
-    return head(p["title"], p["desc"], p["file"], og=p["og"], extra=ld(ld_business(), ld_faq, crumbs)) + header() + "\n<main>\n" + hero(p) + "\n" + body + "</main>\n" + footer()
+    return head(p["title"], p["desc"], p["file"], og=p["og"], extra=extra + ld(ld_business(), ld_faq, crumbs)) + header() + "\n<main>\n" + hero(p) + "\n" + body + "</main>\n" + footer()
+
+def service_cards(zone=None):
+    q = f'?zone={zone["key"]}' if zone else ""
+    cards = "".join(
+        f'<a class="card card-link" href="{s["file"]}{q}">{img(name)}'
+        f'<div class="card-body"><h3>{e(t)}</h3><p>{e(d)}</p><span class="more">Voir la prestation {I["ARROW"]}</span></div></a>'
+        for s, name, t, d in SERVICES)
+    return f'<div class="cards cards-3">{cards}</div>'
 
 def home():
     p = HOME
-    cards = "".join(
-        f'<a class="card card-link" href="{s["file"]}">{img(name)}'
-        f'<div class="card-body"><h3>{e(t)}</h3><p>{e(d)}</p><span class="more">Voir la prestation {I["ARROW"]}</span></div></a>'
-        for s, name, t, d in SERVICES)
-    body = section("Nos prestations", "Couverture, fuites <em>et zinguerie</em>", f'<div class="cards cards-3">{cards}</div>'
+    body = section("Nos prestations", "Couverture, fuites <em>et zinguerie</em>", service_cards()
                    + chips(["Tuile", "Ardoise", "Zinc", "Cuivre", "Bac acier", "Noues et faîtages", "Lucarnes", "Corniches", "Étanchéité"]),
                    lead="Une seule entreprise pour la couverture et tout ce qui est en métal sur votre toit.", sid="prestations")
     body += section("Votre artisan", f"{OWNER.split()[0]}, <em>couvreur zingueur</em>",
@@ -450,13 +594,9 @@ def home():
                     + f'<p><a href="{GOUTT["file"]}" class="btn btn-outline">{I["ARROW"]}Zinguerie et ornementation</a></p></div></div>', sid="ornementation")
     body += section("Nos réalisations", "Sur nos <em>chantiers</em>", gallery(HOME_GALLERY),
                     lead="Bac acier, ardoise, couvertines et zinguerie : quelques travaux récents.", cls="sec-alt", sid="realisations")
-    body += section("Comment ça se passe", "Votre chantier <em>en 3 étapes</em>",
-                    steps3([("Appel ou formulaire", "Décrivez-nous votre toiture et ce qui vous inquiète."),
-                            ("Visite et devis gratuit", "Nous venons voir et vous remettons un devis écrit et détaillé."),
-                            ("Travaux", "Couverture et zinguerie réalisées, chantier nettoyé avant de partir.")]),
-                    cls="sec-dark", sid="methode", center=True)
-    body += section("Zone d'intervention", "Couvreur autour de <em>Conches-en-Ouche et Évreux</em>", zone_block(),
-                    lead="Depuis Portes, nous intervenons dans ces communes et leurs environs.", cls="sec-alt", sid="zone")
+    body += section("Comment ça se passe", "Votre chantier <em>en 3 étapes</em>", steps3(HOME_STEPS), cls="sec-dark", sid="methode", center=True)
+    body += section("Zone d'intervention", "De l'Eure <em>à Paris</em>", zone_cards(),
+                    lead="Basés à Portes (27), nous intervenons dans six départements. Choisissez le vôtre :", cls="sec-alt", sid="zone")
     body += section("Questions fréquentes", "Avant de <em>nous appeler</em>", faq_block(faq_items(p["faq"])), sid="faq", center=True)
     body += cta_band("Un projet de toiture ?", "Décrivez-nous votre toiture : nous vous rappelons pour fixer une visite et établir un devis gratuit.")
     return page(p, body)
@@ -465,7 +605,13 @@ def service(p):
     works = "".join(
         f'<article class="card"><span class="tag">{e(tag)}</span><h3>{e(t)}</h3><p>{e(d)}</p><ul class="checks">'
         + "".join(f"<li>{I['CHECK']}{e(x)}</li>" for x in pts) + "</ul></article>" for tag, t, d, pts in p["works"])
-    others = "".join(f'<a class="other" href="{s["file"]}">{e(s["lp"])} {I["ARROW"]}</a>' for s in PAGES[1:] if s is not p)
+    others = "".join(f'<a class="other" href="{s["file"]}" data-zl>{e(s["lp"])} {I["ARROW"]}</a>' for s in PAGES[1:] if s is not p)
+    back = f'<a class="other" href="./" data-zv="default">Accueil {I["ARROW"]}</a>' + "".join(
+        f'<a class="other" href="{z["file"]}" data-zv="{z["key"]}">{e(z["lp"])} {I["ARROW"]}</a>' for z in ZONES)
+    zone_secs = section("Zone d'intervention", "De l'Eure <em>à Paris</em>", zone_cards(),
+                        lead="Basés à Portes (27), nous intervenons dans six départements.", sid="zone", zv="default")
+    for z in ZONES:
+        zone_secs += section("Zone d'intervention", z["zone_h2"], areas_block(z), lead=e(z["zone_lead"]), sid=f'zone-{z["key"]}', zv=z["key"])
     body = section("Quand nous appeler", "Les signes <em>à surveiller</em>", tiles(p["signs"]), sid="signes")
     body += section("Ce que nous faisons", f"{e(p['lp'])} : <em>nos interventions</em>",
                     '<div class="split split-wide"><div class="cards">' + works + "</div>"
@@ -477,12 +623,25 @@ def service(p):
         eyebrow, h2, names = p["gallery"]
         body += section(eyebrow, h2, gallery(names), cls="sec-alt" if p.get("ba") else "", sid="realisations", center=True)
     body += section("Comment ça se passe", "Votre chantier <em>en 3 étapes</em>", steps3(p["steps"]), cls="sec-dark", sid="methode", center=True)
-    body += section("Zone d'intervention", "Dans l'Eure, <em>autour de Portes</em>", zone_block(),
-                    lead="Conches-en-Ouche, Évreux, Le Neubourg, Beaumont-le-Roger et les communes voisines.", sid="zone")
+    body += zone_secs
     body += section("Questions fréquentes", "Vos questions, <em>nos réponses</em>", faq_block(faq_items(p["faq"])), cls="sec-alt", sid="faq", center=True)
-    body += section("Autres prestations", "Nous intervenons aussi pour", f'<div class="others"><a class="other" href="./">Accueil {I["ARROW"]}</a>{others}</div>', center=True)
+    body += section("Autres prestations", "Nous intervenons aussi pour", f'<div class="others">{back}{others}</div>', center=True)
     body += cta_band("Parlons de votre toiture", "Appelez-nous ou remplissez le formulaire : nous vous rappelons pour fixer une visite.")
-    return page(p, body)
+    return page(p, body, extra=zone_head())
+
+def zone_page(z):
+    body = section("Nos prestations", "Couverture, fuites <em>et zinguerie</em>", service_cards(z),
+                   lead="Une seule entreprise pour la couverture et tout ce qui est en métal sur votre toit.", sid="prestations")
+    body += section("Vos toitures", z["roofs_h2"],
+                    '<div class="split">' + figure(z["photo"], pos="50% 30%")
+                    + f'<div><p class="intro">{e(z["roofs_intro"])}</p>' + tiles(z["roofs"]) + "</div></div>", cls="sec-alt", sid="toitures")
+    body += section("Nos réalisations", "Sur nos <em>chantiers</em>", gallery(z["gallery"]),
+                    lead="Ardoise, bac acier, couvertines et zinguerie : quelques travaux récents.", sid="realisations", center=True)
+    body += section("Comment ça se passe", "Votre chantier <em>en 3 étapes</em>", steps3(HOME_STEPS), cls="sec-dark", sid="methode", center=True)
+    body += section("Zone d'intervention", z["zone_h2"], areas_block(z), lead=e(z["zone_lead"]), cls="sec-alt", sid="zone")
+    body += section("Questions fréquentes", "Avant de <em>nous appeler</em>", faq_block(faq_items(z["faq"])), sid="faq", center=True)
+    body += cta_band("Un projet de toiture ?", "Décrivez-nous votre toiture : nous vous rappelons pour fixer une visite et établir un devis gratuit.")
+    return page(z, body)
 
 def simple(title, desc, file, inner, robots="noindex, follow"):
     # pages sans formulaire : les boutons « Devis gratuit » renvoient au formulaire de l'accueil
@@ -530,9 +689,11 @@ if __name__ == "__main__":
            "mentions-legales.html": mentions(), "confidentialite.html": confidentialite()}
     for p in PAGES[1:]:
         out[p["file"]] = service(p)
+    for z in ZONES:
+        out[z["file"]] = zone_page(z)
     for f, s in out.items():
         open(os.path.join(here, f), "w", encoding="utf-8").write(s)
     open(os.path.join(here, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}sitemap.xml\n")
-    urls = "".join(f"<url><loc>{url_of(p['file'])}</loc><lastmod>{TODAY}</lastmod></url>" for p in PAGES)
+    urls = "".join(f"<url><loc>{url_of(p['file'])}</loc><lastmod>{TODAY}</lastmod></url>" for p in PAGES + ZONES)
     open(os.path.join(here, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
     print("OK :", ", ".join(out), "+ robots.txt, sitemap.xml")
