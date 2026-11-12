@@ -86,7 +86,7 @@ HOME_STEPS = [("Appel ou formulaire", "Décrivez-nous votre toiture et ce qui vo
 RENO = dict(
     file="renovation-toiture.html", lp="Rénovation de toiture",
     title="Rénovation de toiture dans l'Eure | La Ferblanterie de Thomas",
-    desc="Réfection de toiture en tuile, ardoise, zinc ou bac acier dans l'Eure et les départements voisins : écran sous-toiture, liteaux, faîtage. Devis gratuit.",
+    desc="Réfection de toiture en tuile, ardoise, zinc ou aluminium dans l'Eure et les départements voisins : écran sous-toiture, liteaux, faîtage. Devis gratuit.",
     eyebrow="Rénovation de toiture · {zs}",
     h1="Rénovation de toiture <em>tuile, ardoise et zinc</em>",
     sub="Réfection complète ou partielle de votre couverture {z}. Un artisan couvreur zingueur, un devis gratuit et détaillé.",
@@ -98,18 +98,18 @@ RENO = dict(
            ("ROOF", "Faîtage et rives fatigués", "Mortier fissuré, tuiles faîtières qui bougent."),
            ("WIND", "Après une tempête", "Éléments arrachés ou déplacés à faire vérifier.")],
     works=[("Le plus demandé", "Réfection complète", "Dépose de l'ancienne couverture, puis toiture neuve sur une base saine.",
-            ["Écran sous-toiture et liteaux neufs", "Tuile, ardoise ou bac acier", "Faîtage, rives et raccords"]),
+            ["Écran sous-toiture et liteaux neufs", "Tuile, ardoise, zinc ou aluminium", "Faîtage, rives et raccords"]),
            ("Rénovation partielle", "Remplacement localisé", "Un pan, une zone abîmée ou quelques rangs à reprendre.",
             ["Tuiles et ardoises remplacées", "Raccord avec l'existant", "Fenêtres de toit et cheminées"]),
-           ("Annexes et garages", "Bac acier et bardage", "Couverture en bac acier sur voligeage, pignon bardé du même profil.",
-            ["Bac acier anthracite", "Bardage de pignon", "Rives et gouttières"])],
+           ("Toiture métal", "Aluminium à joint debout", "Couverture en aluminium PREFA sur voligeage, pignon habillé du même profil.",
+            ["Aluminium PREFA anthracite", "Habillage de pignon", "Rives et gouttières"])],
     photo="thomas-toiture-ardoise",
     ba=("Avant / après", "Deux chantiers <em>avant et après</em>",
-        "Une annexe passée de la vieille tôle au bac acier, et une fenêtre de toit remplacée avec son raccord.",
-        [("bac-acier-avant-tole", "bac-acier-apres-appentis-pignon", "Annexe couverte en bac acier"),
+        "Une annexe passée de la vieille tôle à l'aluminium à joint debout, et une fenêtre de toit remplacée avec son raccord.",
+        [("annexe-avant-tole", "joint-debout-alu-appentis-pignon", "Annexe couverte en joint debout aluminium"),
          ("fenetre-de-toit-avant", "fenetre-de-toit-apres", "Fenêtre de toit remplacée")]),
     gallery=("Sur nos chantiers", "Du voligeage <em>à la couverture</em>",
-             ["bac-acier-ossature-pignon", "bac-acier-pose-en-cours", "bac-acier-rive-gouttiere"]),
+             ["joint-debout-alu-ossature-pignon", "joint-debout-alu-pose-en-cours", "joint-debout-alu-rive-gouttiere"]),
     steps=[("Visite et diagnostic", "Nous montons voir la couverture et vous expliquons ce qui doit être refait."),
            ("Devis détaillé", "Matériaux, surfaces et étapes : tout est écrit, poste par poste."),
            ("Travaux", "Dépose, pose et finitions, puis chantier nettoyé avant de partir.")],
@@ -158,7 +158,7 @@ GOUTT = dict(
     sub="Gouttières, chéneaux, descentes et habillages façonnés par un ferblantier, {z}.",
     need="Gouttières / zinguerie",
     og="img/card-gouttieres.jpg",
-    hero=("hero-gouttieres", "bac-acier-rive-gouttiere"),
+    hero=("hero-gouttieres", "joint-debout-alu-rive-gouttiere"),
     signs=[("GUTTER", "Gouttière qui déborde", "L'eau passe par-dessus et coule le long du mur."),
            ("DROP", "Fuite aux jonctions", "Goutte à goutte aux raccords, aux angles ou aux talons."),
            ("WALL", "Traces sur la façade", "Coulures, mousse ou enduit qui se décolle sous la gouttière."),
@@ -183,12 +183,12 @@ GOUTT = dict(
 
 PAGES = [HOME, RENO, FUITE, GOUTT]
 SERVICES = [  # cartes de l'accueil
-    (RENO, "card-renovation", "Rénovation de toiture", "Réfection complète ou partielle en tuile, ardoise, zinc ou bac acier."),
+    (RENO, "card-renovation", "Rénovation de toiture", "Réfection complète ou partielle en tuile, ardoise, zinc ou aluminium."),
     (FUITE, "card-fuite", "Réparation de fuite", "Recherche de l'origine, puis réparation de la couverture ou de la zinguerie."),
     (GOUTT, "card-gouttieres", "Gouttières et zinguerie", "Gouttières, chéneaux, descentes et habillages en zinc, cuivre ou aluminium."),
 ]
-HOME_GALLERY = ["bac-acier-apres-appentis-pignon", "bac-acier-ossature-pignon", "fenetre-de-toit-apres",
-                "couvertines-toiture-terrasse", "bac-acier-pose-en-cours", "gouttiere-descente-angle"]
+HOME_GALLERY = ["joint-debout-alu-appentis-pignon", "joint-debout-alu-ossature-pignon", "fenetre-de-toit-apres",
+                "couvertines-toiture-terrasse", "joint-debout-alu-pose-en-cours", "gouttiere-descente-angle"]
 
 # ---------- Pages zones : une par campagne Google Ads (même ciblage géographique) ----------
 # Chaque campagne ajoute « zone=<key> » à ses URL (suffixe d'URL finale de la campagne) : les pages services
@@ -204,14 +204,14 @@ Z_EURE = dict(
     eyebrow="Eure (27) · Basés à Portes",
     h1="Couvreur zingueur <em>dans l'Eure</em>",
     sub="Rénovation de toiture, réparation de fuites, gouttières et ornementation en zinc et cuivre, d'Évreux à Bernay et de Vernon à Verneuil-sur-Avre.",
-    need="", city_ph="Évreux, Bernay…", og="img/hero-bac-acier.jpg",
-    hero=("hero-bac-acier", "bac-acier-apres-appentis-pignon"),
+    need="", city_ph="Évreux, Bernay…", og="img/hero-joint-debout-alu.jpg",
+    hero=("hero-joint-debout-alu", "joint-debout-alu-appentis-pignon"),
     roofs_h2="Les toits <em>de l'Eure</em>",
-    roofs_intro="Tuile plate, ardoise, zinc ou bac acier : nous travaillons sur les maisons anciennes comme sur les plus récentes, en respectant les matériaux d'origine.",
+    roofs_intro="Tuile plate, ardoise, zinc ou aluminium : nous travaillons sur les maisons anciennes comme sur les plus récentes, en respectant les matériaux d'origine.",
     roofs=[("TILE", "Tuile plate de pays", "Longères et maisons de bourg du pays d'Ouche et du Neubourg."),
            ("ROOF", "Ardoise naturelle", "Maisons de maître et manoirs de la vallée de l'Eure."),
            ("METAL", "Zinc et cuivre", "Gouttières, noues, abergements et lucarnes façonnés sur mesure."),
-           ("WALL", "Annexes et garages", "Bac acier sur voligeage, pignon bardé du même profil.")],
+           ("WALL", "Joint debout aluminium", "Couvertures PREFA sur voligeage, pour annexes, extensions et maisons.")],
     photo="thomas-toiture-ardoise",
     gallery=["fenetre-de-toit-apres", "couvertines-toiture-terrasse", "gouttiere-descente-angle"],
     zone_h2="Partout <em>dans l'Eure</em>",
@@ -241,7 +241,7 @@ Z_CALVADOS = dict(
            ("STAR", "Épis, crêtes et lucarnes", "Les finitions en zinc ou en cuivre qui coiffent villas et manoirs."),
            ("WIND", "Air marin", "Près de la mer, fixations en inox et métaux qui résistent au sel.")],
     photo="girouette-cerf-cuivre",
-    gallery=["bac-acier-apres-appentis-pignon", "couvertine-detail-rive", "fenetre-de-toit-apres"],
+    gallery=["joint-debout-alu-appentis-pignon", "couvertine-detail-rive", "fenetre-de-toit-apres"],
     zone_h2="Dans le Calvados <em>et l'Orne</em>",
     zone_lead="Depuis Portes (27), nous intervenons dans tout le Calvados et l'Orne, dans ces communes comme dans leurs environs.",
     areas=[("Pays d'Auge", ["Lisieux", "Pont-l'Évêque", "Livarot", "Orbec", "Vimoutiers"]),
@@ -271,7 +271,7 @@ Z_YVELINES = dict(
            ("WALL", "Pavillons en meulière", "Tuiles à emboîtement, faîtages et rives remis en état."),
            ("METAL", "Zinc et cuivre", "Gouttières, chéneaux, noues et habillages de lucarnes.")],
     photo="ardoises-liteaux-aretier",
-    gallery=["fenetre-de-toit-apres", "bac-acier-pose-en-cours", "gouttiere-descente-angle"],
+    gallery=["fenetre-de-toit-apres", "joint-debout-alu-pose-en-cours", "gouttiere-descente-angle"],
     zone_h2="En Eure-et-Loir <em>et dans les Yvelines</em>",
     zone_lead="Depuis Portes (27), nous intervenons en Eure-et-Loir et dans les Yvelines, dans ces communes comme dans leurs environs.",
     areas=[("Drouais et Thymerais", ["Dreux", "Vernouillet", "Anet", "Nogent-le-Roi", "Châteauneuf-en-Thymerais"]),
@@ -319,15 +319,15 @@ PHOTOS = {
     "thomas-toiture-ardoise": (505, 828, f"{OWNER.split()[0]} sur une toiture en ardoise en cours de réfection, contre une cheminée en brique", "Réfection d'une couverture en ardoise"),
     "girouette-cerf-cuivre": (900, 1200, "Girouette en cuivre en forme de cerf au sommet d'un pignon", "Girouette en cuivre posée sur un pignon"),
     "ardoises-liteaux-aretier": (750, 1000, "Ardoises posées sur liteaux le long d'un arêtier, chantier en cours", "Pose d'ardoises sur liteaux, détail d'arêtier"),
-    "bac-acier-avant-tole": (750, 1000, "Annexe couverte d'une ancienne tôle nervurée, avant travaux", "Ancienne couverture en tôle nervurée"),
-    "bac-acier-apres-appentis-pignon": (750, 1000, "Annexe couverte de bac acier anthracite, pignon bardé du même bac acier", "Bac acier anthracite, pignon bardé"),
-    "bac-acier-pose-en-cours": (750, 1000, "Pose de bac acier anthracite sur voligeage bois, échafaudage en place", "Pose du bac acier sur voligeage"),
-    "bac-acier-ossature-pignon": (750, 1000, "Ossature bois du pignon et voligeage prêts à recevoir le bac acier", "Ossature bois du pignon avant bardage"),
-    "bac-acier-rive-gouttiere": (750, 1000, "Gouttière et rive en bout de couverture en bac acier anthracite", "Rive et gouttière sur bac acier"),
+    "annexe-avant-tole": (750, 1000, "Annexe couverte d'une ancienne tôle nervurée, avant travaux", "Ancienne couverture en tôle nervurée"),
+    "joint-debout-alu-appentis-pignon": (750, 1000, "Annexe couverte en aluminium à joint debout PREFA anthracite, pignon habillé du même profil", "Joint debout aluminium PREFA, pignon habillé"),
+    "joint-debout-alu-pose-en-cours": (750, 1000, "Pose de l'aluminium à joint debout anthracite sur voligeage bois, échafaudage en place", "Pose du joint debout sur voligeage"),
+    "joint-debout-alu-ossature-pignon": (750, 1000, "Ossature bois du pignon et voligeage prêts à recevoir l'aluminium à joint debout", "Ossature bois du pignon avant habillage"),
+    "joint-debout-alu-rive-gouttiere": (750, 1000, "Gouttière et rive en bout de couverture en aluminium à joint debout anthracite", "Rive et gouttière sur joint debout aluminium"),
     "gouttiere-descente-angle": (560, 700, "Gouttière et descente métalliques à l'angle d'une maison aux volets blancs", "Gouttière et descente à l'angle de la maison"),
     "card-renovation": (960, 720, "Rénovation de toiture : ardoises posées sur liteaux neufs le long d'un arêtier", ""),
     "card-fuite": (1000, 750, "Couvertine métallique et raccord étanche contre le mur d'une maison", ""),
-    "card-gouttieres": (1000, 750, "Gouttière en bout de couverture en bac acier anthracite", ""),
+    "card-gouttieres": (1000, 750, "Gouttière en bout de couverture en aluminium à joint debout anthracite", ""),
     "couvertines-toiture-terrasse": (750, 1000, "Couvertines métalliques posées autour d'une toiture terrasse", "Couvertines autour d'une toiture terrasse"),
     "couvertine-detail-rive": (750, 1000, "Détail d'une couvertine métallique en rive de toiture terrasse", "Couvertine en rive de toiture terrasse"),
     "couvertines-solin-angle": (750, 1000, "Couvertines métalliques et solin à l'angle d'une toiture terrasse, contre le mur de la maison", "Couvertines et solin contre le mur"),
@@ -577,12 +577,12 @@ def service_cards(zone=None):
 def home():
     p = HOME
     body = section("Nos prestations", "Couverture, fuites <em>et zinguerie</em>", service_cards()
-                   + chips(["Tuile", "Ardoise", "Zinc", "Cuivre", "Bac acier", "Noues et faîtages", "Lucarnes", "Corniches", "Étanchéité"]),
+                   + chips(["Tuile", "Ardoise", "Zinc", "Cuivre", "Aluminium joint debout", "Noues et faîtages", "Lucarnes", "Corniches", "Étanchéité"]),
                    lead="Une seule entreprise pour la couverture et tout ce qui est en métal sur votre toit.", sid="prestations")
     body += section("Votre artisan", f"{OWNER.split()[0]}, <em>couvreur zingueur</em>",
                     '<div class="split">' + figure("thomas-toiture-ardoise", pos="50% 30%")
                     + '<div>' + f'<p class="intro">Vous parlez à l\'artisan qui monte sur votre toit, du premier appel à la fin du chantier.</p>'
-                    + tiles([("ROOF", "Couverture", "Tuile, ardoise, zinc et bac acier."),
+                    + tiles([("ROOF", "Couverture", "Tuile, ardoise, zinc et aluminium."),
                              ("METAL", "Ferblanterie", "Zinc, cuivre, acier et aluminium façonnés."),
                              ("WALL", "Bâti ancien", "Les matériaux d'origine respectés."),
                              ("USER", "Particuliers et pros", "Maisons, entreprises, collectivités.")])
@@ -593,7 +593,7 @@ def home():
                     + chips(["Épis de faîtage", "Girouettes", "Crêtes", "Lucarnes", "Corniches"])
                     + f'<p><a href="{GOUTT["file"]}" class="btn btn-outline">{I["ARROW"]}Zinguerie et ornementation</a></p></div></div>', sid="ornementation")
     body += section("Nos réalisations", "Sur nos <em>chantiers</em>", gallery(HOME_GALLERY),
-                    lead="Bac acier, ardoise, couvertines et zinguerie : quelques travaux récents.", cls="sec-alt", sid="realisations")
+                    lead="Joint debout, ardoise, couvertines et zinguerie : quelques travaux récents.", cls="sec-alt", sid="realisations")
     body += section("Comment ça se passe", "Votre chantier <em>en 3 étapes</em>", steps3(HOME_STEPS), cls="sec-dark", sid="methode", center=True)
     body += section("Zone d'intervention", "De l'Eure <em>à Paris</em>", zone_cards(),
                     lead="Basés à Portes (27), nous intervenons dans six départements. Choisissez le vôtre :", cls="sec-alt", sid="zone")
@@ -636,7 +636,7 @@ def zone_page(z):
                     '<div class="split">' + figure(z["photo"], pos="50% 30%")
                     + f'<div><p class="intro">{e(z["roofs_intro"])}</p>' + tiles(z["roofs"]) + "</div></div>", cls="sec-alt", sid="toitures")
     body += section("Nos réalisations", "Sur nos <em>chantiers</em>", gallery(z["gallery"]),
-                    lead="Ardoise, bac acier, couvertines et zinguerie : quelques travaux récents.", sid="realisations", center=True)
+                    lead="Ardoise, joint debout, couvertines et zinguerie : quelques travaux récents.", sid="realisations", center=True)
     body += section("Comment ça se passe", "Votre chantier <em>en 3 étapes</em>", steps3(HOME_STEPS), cls="sec-dark", sid="methode", center=True)
     body += section("Zone d'intervention", z["zone_h2"], areas_block(z), lead=e(z["zone_lead"]), cls="sec-alt", sid="zone")
     body += section("Questions fréquentes", "Avant de <em>nous appeler</em>", faq_block(faq_items(z["faq"])), sid="faq", center=True)
