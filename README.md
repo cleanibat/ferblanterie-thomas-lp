@@ -15,7 +15,7 @@ Une page par zone, une campagne Google Ads par page (même ciblage géographique
 Avec ce suffixe, les pages services affichent la zone de la campagne (hero, bloc zone, liens). Sans paramètre, elles affichent « Eure et départements voisins ». Les annonces génériques (couvreur, toiture) renvoient vers la page zone, les annonces par service vers la page service.
 Production : https://laferblanteriedethomas.com/ (IONOS Hébergement Web Plus, contrat 300541272). Aperçu : https://cleanibat.github.io/ferblanterie-thomas-lp/ (le formulaire n'y fonctionne pas, c'est normal).
 
-Déploiement : push sur `main` → `.github/workflows/deploy-ssh.yml` (rsync SSH vers IONOS), actif quand la variable de dépôt `DEPLOY` vaut `on`.
+Déploiement : push sur `main` → `.github/workflows/deploy-ssh.yml` (rsync SSH vers IONOS), actif (`DEPLOY=on` depuis le 14/11/2026). Accès SSH su168946@access-5021849476.webspace-host.com, clé dédiée `~/.ssh/deploy_ferblanterie` (Mac d'Aymeric + secret GitHub). Docroot `/home/www/public/` ; leads CSV dans `/home/www/prive_ferblanterie/`.
 
 ## Reste à faire
 1. Adresse e-mail de Thomas : `EMAIL` dans build.py, `$DEST` dans contact.php.
