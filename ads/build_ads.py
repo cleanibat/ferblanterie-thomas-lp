@@ -36,8 +36,8 @@ ZONES = [
        path="paris", fuite=False, cities=["paris"],
        zdesc="Copropriétés et maisons de ville : nous intervenons dans les 20 arrondissements."),
 ]
+BUDGET_PARTAGE = "Budget partagé - Ferblanterie"   # Aymeric le 19/11/2026 : un seul budget pour les 4 campagnes
 TOTAL_JOUR = math.floor(BUDGET_MENSUEL / 30.4 * 100) / 100          # 23,02 €/jour pour 700 €/mois
-SHARES = sum(z["share"] for z in ZONES)
 
 def groups(z):
     a, b, page, c = z["a"], z["b"], SITE + z["page"], z["cities"]
@@ -136,7 +136,7 @@ for v in SNIPPET[1]: lim(v, 25, "Extrait")
 if errors: sys.exit("\n".join(errors))
 
 # ---------------- Fichier 1 : campagnes, zones, groupes, mots-clés, annonces ----------------
-H1 = ["Campaign", "Campaign Type", "Networks", "Budget", "Budget type", "Bid Strategy Type", "Languages", "Targeting method",
+H1 = ["Campaign", "Campaign Type", "Networks", "Budget", "Budget name", "Budget type", "Bid Strategy Type", "Languages", "Targeting method",
       "Exclusion method", "Final URL suffix", "Campaign Status", "Location", "Location ID", "Ad Group", "Ad Group Status", "Keyword",
       "Criterion Type", "Status", "Ad type"] + [f"Headline {i}" for i in range(1, 16)] + [f"Description {i}" for i in range(1, 5)] + \
      ["Path 1", "Path 2", "Final URL"]
@@ -145,12 +145,12 @@ H2 = ["Campaign", "Sitelink text", "Description line 1", "Description line 2", "
 rows, rows2, summary = [], [], []
 for z in ZONES:
     camp = f"Search - Ferblanterie - {z['name']}"
-    budget = math.floor(TOTAL_JOUR * z["share"] / SHARES * 100) / 100
+    budget = TOTAL_JOUR   # budget partagé : même montant et même nom sur les 4 campagnes
     def row(**kw):
         r = {h: "" for h in H1}; r["Campaign"] = camp
         for k, v in kw.items(): r[k.replace("_", " ")] = v
         rows.append(r)
-    row(Campaign_Type="Search", Networks="Google search", Budget=f"{budget:.2f}", Budget_type="Daily",
+    row(Campaign_Type="Search", Networks="Google search", Budget=f"{budget:.2f}", Budget_name=BUDGET_PARTAGE, Budget_type="Daily",
         Bid_Strategy_Type="Maximize conversions", Languages="fr", Targeting_method="Location of presence",
         Exclusion_method="Location of presence", Final_URL_suffix=f"zone={z['key']}", Campaign_Status=STATUS)
     for d in z["depts"]: row(Location=DEPTS[d][1], Location_ID=str(DEPTS[d][0]))
@@ -175,7 +175,7 @@ for z in ZONES:
     row2(Header=SNIPPET[0], Snippet_values=";".join(snip))
     row2(Phone_Number=PHONE[0], Country_code=PHONE[1])
     kw = sum(len(g["phrase"]) + len(g["exact"]) for g in gs)
-    summary.append(f"{camp} : {budget:.2f} €/jour, {len(gs)} groupes, {kw} mots-clés, {len(negs)} négatifs, zone={z['key']}")
+    summary.append(f"{camp} : {len(gs)} groupes, {kw} mots-clés, {len(negs)} négatifs, zone={z['key']}")
 
 def write(path, header, data):
     buf = io.StringIO(); w = csv.DictWriter(buf, fieldnames=header, delimiter="\t", lineterminator="\r\n"); w.writeheader(); w.writerows(data)
@@ -184,4 +184,4 @@ here = os.path.dirname(os.path.abspath(__file__))
 write(os.path.join(here, "1-campagnes-google-ads-editor.csv"), H1, rows)
 write(os.path.join(here, "2-composants-google-ads-editor.csv"), H2, rows2)
 print("\n".join(summary))
-print(f"Total {sum(math.floor(TOTAL_JOUR * z['share'] / SHARES * 100) / 100 for z in ZONES):.2f} €/jour ; {len(rows)} + {len(rows2)} lignes ; statut {STATUS}")
+print(f"Budget partagé « {BUDGET_PARTAGE} » : {TOTAL_JOUR:.2f} €/jour pour les {len(ZONES)} campagnes ; {len(rows)} + {len(rows2)} lignes ; statut {STATUS}")
