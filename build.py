@@ -4,7 +4,7 @@ Usage : python3 build.py   — modifier la config ci-dessous, relancer, pousser 
 import datetime, html, json, os
 
 # ---------- Config ----------
-GTM_ID   = ""                                       # ex. "GTM-XXXXXXX" ; vide = snippet commenté
+GTM_ID   = "GTM-5WTF53XD"                                       # ex. "GTM-XXXXXXX" ; vide = snippet commenté
 SITE     = "https://laferblanteriedethomas.com/"    # domaine de production (canonical, sitemap, Open Graph)
 BRAND    = "La Ferblanterie de Thomas"
 OWNER    = "Thomas Ferreira Rolo"
