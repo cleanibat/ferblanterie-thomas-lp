@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 date_default_timezone_set('Europe/Paris');
 
-$DEST     = 'aymeric@cleanibat.fr';                         // À REMPLACER par l'adresse de Thomas (inconnue au 06/11/2026)
+$DEST     = 'contact@laferblanteriedethomas.com';                 // Thomas (confirmé le 19/11/2026)
 $BCC      = 'aymeric@cleanibat.fr';                         // Aymeric toujours en copie CACHÉE, jamais en destinataire visible
 $SENDER   = 'no-reply@laferblanteriedethomas.com';          // domaine du contrat IONOS (SPF : include:_spf-eu.ionos.com)
 $FROM     = 'La Ferblanterie de Thomas <' . $SENDER . '>';

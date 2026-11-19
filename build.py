@@ -10,7 +10,7 @@ BRAND    = "La Ferblanterie de Thomas"
 OWNER    = "Thomas Ferreira Rolo"
 TEL_FR   = "07 78 37 52 91"
 TEL_INT  = "+33778375291"
-EMAIL    = ""                                       # adresse de contact publique, à confirmer avec Thomas (vide = non affichée)
+EMAIL    = "contact@laferblanteriedethomas.com"     # confirmé par Aymeric le 19/11/2026
 STREET, CP, CITY = "18 rue Rolette", "27190", "Portes"
 GEO      = (49.0316, 0.9472)                        # fiche Google
 INSTAGRAM = "https://www.instagram.com/laferblanteriedethomas/"
