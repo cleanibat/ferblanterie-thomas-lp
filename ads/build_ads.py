@@ -10,7 +10,7 @@ import csv, io, math, os, sys
 
 SITE = "https://laferblanteriedethomas.com/"
 STATUS = "Paused"                       # tout est importé en pause : Aymeric relit et active
-BUDGET_MENSUEL = 700                    # hypothèse en attendant le budget réel (même point de départ que La Rénovation de vos rêves)
+BUDGET_MENSUEL = 500                    # budget réel confirmé par Aymeric le 19/11/2026
 PHONE = ("+33778375291", "FR")
 RENO, FUITE, GOUTT = SITE + "renovation-toiture.html", SITE + "reparation-fuite-toiture.html", SITE + "gouttieres-zinguerie.html"
 
