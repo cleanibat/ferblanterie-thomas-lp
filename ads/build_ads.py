@@ -20,19 +20,19 @@ DEPTS = {"Eure": (9040862, "Eure, Normandy, France"), "Calvados": (9040909, "Cal
          "Yvelines": (9040873, "Yvelines, Ile-de-France, France"), "Paris": (9040871, "Paris, Ile-de-France, France")}
 
 ZONES = [
-  dict(key="eure", name="Eure (27)", page="couvreur-eure.html", depts=["Eure"], share=9, a="Eure", b="à Évreux",
+  dict(key="eure", zlabel="Partout dans l'Eure", name="Eure (27)", page="couvreur-eure.html", depts=["Eure"], share=9, a="Eure", b="à Évreux",
        path="eure", fuite=True,
        cities=["évreux", "conches en ouche", "bernay", "vernon", "louviers", "le neubourg", "verneuil sur avre", "pont audemer"],
        zdesc="Basés à Portes, entre Conches-en-Ouche et Évreux, nous intervenons dans toute l'Eure."),
-  dict(key="calvados-orne", name="Calvados et Orne (14-61)", page="couvreur-calvados-orne.html", depts=["Calvados", "Orne"], share=6,
+  dict(key="calvados-orne", zlabel="Calvados et Orne", name="Calvados et Orne (14-61)", page="couvreur-calvados-orne.html", depts=["Calvados", "Orne"], share=6,
        a="Calvados", b="dans l'Orne", path="calvados-orne", fuite=False,
        cities=["lisieux", "caen", "deauville", "honfleur", "l'aigle", "alençon", "argentan", "pont l'évêque"],
        zdesc="Depuis Portes (27), nous intervenons dans le Calvados et l'Orne, de Lisieux à Alençon."),
-  dict(key="eure-et-loir-yvelines", name="Eure-et-Loir et Yvelines (28-78)", page="couvreur-eure-et-loir-yvelines.html",
+  dict(key="eure-et-loir-yvelines", zlabel="Eure-et-Loir et Yvelines", name="Eure-et-Loir et Yvelines (28-78)", page="couvreur-eure-et-loir-yvelines.html",
        depts=["Eure-et-Loir", "Yvelines"], share=5, a="Eure-et-Loir", b="dans les Yvelines", path="yvelines", fuite=False,
        cities=["dreux", "chartres", "mantes la jolie", "houdan", "rambouillet", "versailles", "saint germain en laye"],
        zdesc="Depuis Portes (27), nous intervenons de Dreux à Chartres et de Mantes à Versailles."),
-  dict(key="paris", name="Paris (75)", page="couvreur-paris.html", depts=["Paris"], share=3, a="Paris", b="à Paris",
+  dict(key="paris", zlabel="Dans tout Paris", name="Paris (75)", page="couvreur-paris.html", depts=["Paris"], share=3, a="Paris", b="à Paris",
        path="paris", fuite=False, cities=["paris"],
        zdesc="Copropriétés et maisons de ville : nous intervenons dans les 20 arrondissements."),
 ]
@@ -107,8 +107,9 @@ def sitelinks(z):
     page = SITE + z["page"]
     s = [("Rénovation de toiture", "Réfection complète ou partielle", "Ardoise, tuile, zinc", RENO),
          ("Gouttières et zinguerie", "Zinc, cuivre, aluminium", "Chéneaux, descentes, habillages", GOUTT),
-         ("Demander un devis", "Devis gratuit et détaillé", "Réponse par téléphone", page + "#devis"),
-         ("Nos réalisations", "Quelques chantiers récents", "Couverture et zinguerie", page + "#realisations")]
+         ("Demander un devis", "Devis gratuit et détaillé", z["zlabel"], page + "#devis"),
+         ("Nos réalisations", "Quelques chantiers récents", z["zlabel"], page + "#realisations")]
+    # 2e ligne propre à la zone : Editor fusionne les liens annexes identiques (texte + descriptions) en un seul composant
     if z["fuite"]: s.insert(1, ("Réparation de fuite", "On trouve l'origine de l'eau", "Couverture et zinguerie", FUITE))
     return s
 CALLOUTS = ["Devis gratuit", "Un seul interlocuteur", "Zinc, cuivre, ardoise", "Chantier nettoyé", "Particuliers et pros",
