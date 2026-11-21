@@ -99,8 +99,8 @@ def groups(z):
 NEGATIVES = ["emploi", "recrutement", "salaire", "formation", "cap", "apprenti", "apprentissage", "stage", "alternance", "cours",
              "tuto", "tutoriel", "soi même", "diy", "bricolage", "leroy merlin", "castorama", "brico dépôt", "occasion", "pdf",
              "wikipedia", "définition", "logiciel", "fiche métier", "nettoyage", "démoussage", "hydrofuge", "panneau solaire",
-             "photovoltaïque", "isolation", "charpentier", "charpente", "bac acier", "chaume", "plombier", "plomberie",
-             "gouttière pvc", "location", "nacelle location", "échafaudage location"]
+             "photovoltaïque", "isolation", "charpentier", "charpente", "chaume", "plombier", "plomberie",
+             "location", "nacelle location", "échafaudage location"]
 FAR_NEGATIVES = ["urgence", "urgent", "dépannage", "24h", "nuit", "dimanche"]     # dépannage gardé pour l'Eure
 
 def sitelinks(z):
